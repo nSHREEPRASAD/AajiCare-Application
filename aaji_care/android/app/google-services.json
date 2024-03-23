@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "420983719622",
+    "project_id": "aaji-care-app",
+    "storage_bucket": "aaji-care-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:420983719622:android:60461cc468716d77c279c7",
+        "android_client_info": {
+          "package_name": "com.example.aaji_care"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "420983719622-pg2418o4m73qj7kjtvnrcm8025a172n8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUwmPC9OnWCvwzJigKloLd35p7OEC_oZg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "420983719622-pg2418o4m73qj7kjtvnrcm8025a172n8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
