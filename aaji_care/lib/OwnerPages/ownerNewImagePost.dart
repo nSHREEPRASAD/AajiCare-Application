@@ -42,21 +42,23 @@ class _ownerNewImagePostState extends State<ownerNewImagePost> {
                     child: Container(
                       width: (300/360)*ScreenWidth,
                       height: (300/672)*ScreenHeight,
-                      child: Photo==null? Icon(Icons.image,size: 200,color: Colors.blueGrey,):Image.file(Photo!,width: (300/360)*ScreenWidth,height: (300/672)*ScreenHeight,fit: BoxFit.cover,)
+                      child: Photo==null? Icon(Icons.image,size: (200/672)*ScreenHeight,color: Colors.blueGrey,):Image.file(Photo!,width: (300/360)*ScreenWidth,height: (300/672)*ScreenHeight,fit: BoxFit.cover,)
                     ),
                   ),
                   Positioned(
                     top: 10,
                     right: 10,
-                    child: IconButton(
+                    child: 
+                    filePath!=""?
+                    IconButton(
                       onPressed: (){
                         setState(() {
                           Photo=null;
                           filePath="";
                         });
                       }, 
-                      icon: Icon(Icons.cancel,size: 40)
-                    ),
+                      icon: Icon(Icons.cancel,size: (40/672)*ScreenHeight)
+                    ):Text(""),
                   )
                 ]
                 ),
@@ -87,7 +89,7 @@ class _ownerNewImagePostState extends State<ownerNewImagePost> {
                                       });
                                     }
                                   }, 
-                                  icon: Icon(Icons.add_a_photo,size: 50,)
+                                  icon: Icon(Icons.add_a_photo,size: (50/672)*ScreenHeight,)
                                 ),
                                 Text("Camera")
                               ],
@@ -111,7 +113,7 @@ class _ownerNewImagePostState extends State<ownerNewImagePost> {
                                       });
                                     }
                                   }, 
-                                  icon: Icon(Icons.image,size: 50,)
+                                  icon: Icon(Icons.image,size: (50/672)*ScreenHeight,)
                                 ),
                                 Text("Gallery")
                               ],
@@ -128,6 +130,7 @@ class _ownerNewImagePostState extends State<ownerNewImagePost> {
                 width: (300/360)*ScreenWidth,
                 child: Form(
                   child: TextFormField(
+                    maxLines: 2,
                     controller: _CaptionController,
                     decoration: InputDecoration(
                       hintText: "Write a Caption...",
@@ -163,7 +166,7 @@ class _ownerNewImagePostState extends State<ownerNewImagePost> {
                       setState(() {
                         isPressed=true;
                       });
-                      Future.delayed(Duration(seconds: 10 ),(){
+                      Future.delayed(Duration(seconds: 11 ),(){
                         setState(() {
                           isPressed=false;
                         });
@@ -201,13 +204,18 @@ class _ownerNewImagePostState extends State<ownerNewImagePost> {
                     }, 
                     child: 
                     isPressed?
-                    Center(child: CircularProgressIndicator(),):
                     Container(
-                      width: 90,
-                      height: 50,
+                      width:(90/360)*ScreenWidth,
+                      height:(30/360)*ScreenHeight,
+                      child:Center(child: CircularProgressIndicator(),)
+                    )
+                    :
+                    Container(
+                      width:(90/360)*ScreenWidth,
+                      height:(30/360)*ScreenHeight,
                       child: Row(
                         children: [
-                          Text("Post",style: TextStyle(fontSize: 25),),
+                          Text("Post",style: TextStyle(fontSize: (25/672)*ScreenHeight),),
                           SizedBox(width: (10/360)*ScreenWidth,),
                           Icon(Icons.send)
                         ],

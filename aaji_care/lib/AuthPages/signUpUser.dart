@@ -13,8 +13,8 @@ class SignUpUser extends StatefulWidget {
 }
 
 class _SignUpUserState extends State<SignUpUser> {
-   bool isLoading=false;
-   bool _obscure=true;
+  bool isLoading=false;
+  bool _obscure=true;
   final key1=GlobalKey<FormState>();
   final key2=GlobalKey<FormState>();
   final key3=GlobalKey<FormState>();
@@ -49,17 +49,16 @@ class _SignUpUserState extends State<SignUpUser> {
               ),
               Container(
                 width: (320/360)*ScreenWidth,
-                height: (400/672)*ScreenHeight,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(left: 5),
-                      child: Text("Welcome,",style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),),
+                      child: Text("Welcome,",style: TextStyle(fontSize: (30/672)*ScreenHeight,fontWeight: FontWeight.bold),),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 5),
-                      child: Text("Create an account",style: TextStyle(fontSize: 20),),
+                      child: Text("Create an account",style: TextStyle(fontSize: (20/672)*ScreenHeight),),
                     ),
                     SizedBox(height: (10/672)*ScreenHeight,),
                     Row(

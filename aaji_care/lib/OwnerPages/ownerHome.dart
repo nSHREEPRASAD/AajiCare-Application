@@ -6,6 +6,7 @@ import 'package:aaji_care/OwnerPages/ownerResponseCorner.dart';
 import 'package:aaji_care/OwnerPages/ownerVacancy.dart';
 import 'package:aaji_care/UserPages/userAajiCareActivity.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
@@ -28,6 +29,17 @@ class _OwnerHomeState extends State<OwnerHome> {
     this.Role
   );
   final _auth=FirebaseAuth.instance;
+  Map<String,dynamic> userMap={};
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    FirebaseFirestore.instance.collection("Users").doc(_auth.currentUser!.uid.toString()).get().then((value){
+      setState(() {
+        userMap=value.data()!;
+      });
+    });
+  }
   @override
   Widget build(BuildContext context) {
     var ScreenHeight = MediaQuery.of(context).size.height;
@@ -42,67 +54,28 @@ class _OwnerHomeState extends State<OwnerHome> {
           children: [
             SizedBox(height: (50/672)*ScreenHeight,),
             Card(
-              elevation: 5,
-              child: Container(
-                child: Row(
-                    children: [
-                      Container(
-                        width: (80/360)*ScreenWidth,
-                        height: (130/672)*ScreenHeight,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            SizedBox(height: (10/672)*ScreenHeight,),
-                            Container(
-                              height: (80/672)*ScreenHeight,
-                              width: (80/360)*ScreenWidth,
-                              child: CircleAvatar(
-                                child: Icon(Icons.person,size: 70,),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(width: (5/360)*ScreenWidth,),
-                      Container(
-                        width: (190/360)*ScreenWidth,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            SizedBox(height: (20/672)*ScreenHeight,),
-                            Text(Email),
-                            SizedBox(height: (5/672)*ScreenHeight,),
-                            Text(Role),
-                            SizedBox(height: (5/672)*ScreenHeight,),
-                            ElevatedButton(
-                              onPressed: (){
-                                _auth.signOut().then((value){
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text("Account Signed Out",style: TextStyle(color: Colors.white),),
-                                        backgroundColor: Colors.black,
-                                        duration: Duration(seconds: 2),
-                                      )
-                                    );
-                                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>SignIn()));
-                                });
-                              }, 
-                              child: Container(
-                                width: (80/360)*ScreenWidth,
-                                child: Row(
-                                  children: [
-                                    Icon(Icons.logout),
-                                    Text("Sign Out"),
-                                  ],
-                                ),
-                              ))
-                          ],
-                        ),
-                      )
-                    ],
+                elevation: 5,
+                child: ListTile(
+                  leading: CircleAvatar(child: Icon(Icons.person)),
+                  title: userMap.isEmpty?Text("Loading..."):Text(userMap["Name"]),
+                  subtitle: Text("Role : User"),
+                  trailing: IconButton(
+                    onPressed: (){
+                      _auth.signOut().then((value){
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text("Account Signed Out",style: TextStyle(color: Colors.white),),
+                              backgroundColor: Colors.black,
+                              duration: Duration(seconds: 2),
+                          )
+                        );
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>SignIn()));
+                      });
+                    }, 
+                    icon: Icon(Icons.logout)
                   ),
+                ),
               ),
-            ),
             SizedBox(height: (10/672)*ScreenHeight,),
             InkWell(
               child: Card(
@@ -112,7 +85,9 @@ class _OwnerHomeState extends State<OwnerHome> {
                   child: Row(
                     children: [
                       SizedBox(width: (10/360)*ScreenWidth,),
-                      Text("Response Corner",style: TextStyle(fontSize: 20),),
+                      Icon(Icons.comment),
+                      SizedBox(width: (10/360)*ScreenWidth,),
+                      Text("Response Corner",style: TextStyle(fontSize: (20/672)*ScreenHeight),),
                     ],
                   ),
                 ),
@@ -129,7 +104,9 @@ class _OwnerHomeState extends State<OwnerHome> {
                   child: Row(
                     children: [
                       SizedBox(width: (10/360)*ScreenWidth,),
-                      Text("Make a Post",style: TextStyle(fontSize: 20),),
+                      Icon(Icons.post_add),
+                      SizedBox(width: (10/360)*ScreenWidth,),
+                      Text("Make a Post",style: TextStyle(fontSize: (20/672)*ScreenHeight),),
                     ],
                   ),
                 ),
@@ -146,7 +123,9 @@ class _OwnerHomeState extends State<OwnerHome> {
                   child: Row(
                     children: [
                       SizedBox(width: (10/360)*ScreenWidth,),
-                      Text("Inquiry Forms",style: TextStyle(fontSize: 20),),
+                      Icon(Icons.book),
+                      SizedBox(width: (10/360)*ScreenWidth,),
+                      Text("Inquiry Forms",style: TextStyle(fontSize: (20/672)*ScreenHeight),),
                     ],
                   ),
                 ),
@@ -163,7 +142,9 @@ class _OwnerHomeState extends State<OwnerHome> {
                   child: Row(
                     children: [
                       SizedBox(width: (10/360)*ScreenWidth,),
-                      Text("Aaji Care Activity",style: TextStyle(fontSize: 20),),
+                      Icon(Icons.image),
+                      SizedBox(width: (10/360)*ScreenWidth,),
+                      Text("Aaji Care Activity",style: TextStyle(fontSize: (20/672)*ScreenHeight),),
                     ],
                   ),
                 ),
@@ -180,7 +161,9 @@ class _OwnerHomeState extends State<OwnerHome> {
                   child: Row(
                     children: [
                       SizedBox(width: (10/360)*ScreenWidth,),
-                      Text("Vacancy",style: TextStyle(fontSize: 20),),
+                      Icon(Icons.work),
+                      SizedBox(width: (10/360)*ScreenWidth,),
+                      Text("Vacancy",style: TextStyle(fontSize: (20/672)*ScreenHeight),),
                     ],
                   ),
                 ),
@@ -216,20 +199,19 @@ class _OwnerHomeState extends State<OwnerHome> {
                 padding: const EdgeInsets.only(left: 20,right: 20),
                 child: Container(
                   width: (400/360)*ScreenWidth,
-                  height: (240/672)*ScreenHeight,
                   child: Column(
                     children: [
-                      Text("Hello Admin !. This is Aaji Care's Admin Section. Making posts, Handeling response forms, Adding Vacancy Updates, Handeling Applicant's resumes, Aaji Care Community Chats, all these functionalities are to be handeled in this admin section.",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold, color: Colors.black),)
+                      Text("Hello Admin !. This is Aaji Care's Admin Section. Making posts, Handeling response forms, Adding Vacancy Updates, Handeling Applicant's resumes, Aaji Care Community Chats, all these functionalities are to be handeled in this admin section.",style: TextStyle(fontSize: (20/672)*ScreenHeight,fontWeight: FontWeight.bold, color: Colors.black),)
                     ],
                   ),
                 ),
               ),
-              SizedBox(height: 10,),
+              SizedBox(height: (10/672)*ScreenHeight,),
               Padding(
                 padding: const EdgeInsets.only(left: 20,right: 20),
                 child: Container(
-                  width: 320,
-                  height: 150,
+                  width: (320/360)*ScreenWidth,
+                  height: (150/672)*ScreenHeight,
                   child: Lottie.asset("assets/animations/AajiCareAdminHome.json"),
                 ),
               )

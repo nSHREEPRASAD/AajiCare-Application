@@ -21,11 +21,6 @@ class OwnerInquiryForm extends StatelessWidget {
           child: Container(
             width: (320/360)*ScreenWidth,
             height: (550/672)*ScreenHeight,
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: Colors.black
-              )
-            ),
             child: StreamBuilder(
               stream: FirebaseFirestore.instance.collection("Inquiry").snapshots(),
               builder: (context,AsyncSnapshot<QuerySnapshot>snapshot){
@@ -35,11 +30,10 @@ class OwnerInquiryForm extends StatelessWidget {
                     itemBuilder: (context,index){
                       return InkWell (
                         child: Padding(
-                          padding: const EdgeInsets.only(left: 10,right: 10,top: 10),
+                          padding: const EdgeInsets.only(left: 2,right: 2),
                           child: Card(
                             elevation: 5,
                             child: Container(
-                              width: (300/360)*ScreenWidth,
                               child: ListTile(
                                 leading: CircleAvatar(child: Icon(Icons.person),),
                                 title: Text(snapshot.data!.docs[index]["Name"].toString()),

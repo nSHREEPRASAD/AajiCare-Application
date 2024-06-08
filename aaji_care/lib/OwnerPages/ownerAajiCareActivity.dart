@@ -50,6 +50,7 @@ class _ownerAajiCareActivityState extends State<ownerAajiCareActivity> {
                 return Padding(
                   padding: const EdgeInsets.only(left: 15,right: 15,top: 5),
                   child: Card(
+                    elevation: 15,
                     child: Container(
                       child: Column(
                         children: [
@@ -58,7 +59,7 @@ class _ownerAajiCareActivityState extends State<ownerAajiCareActivity> {
                             height: (250/672)*ScreenHeight,
                             child: 
                             snapshot.data!.docs[index]["FileType"]=="Image"?
-                            Image.network(snapshot.data!.docs[index]["ImgUrl"],width: (300/360)*ScreenWidth,height: (250/672)*ScreenHeight,fit: BoxFit.fill,):
+                            Image.network(snapshot.data!.docs[index]["ImgUrl"],width: (300/360)*ScreenWidth,height: (250/672)*ScreenHeight,fit: BoxFit.cover,):
                             VideoPlayer(_controller!)
                           ),
                           SizedBox(height: (5/672)*ScreenHeight,),
@@ -91,7 +92,7 @@ class _ownerAajiCareActivityState extends State<ownerAajiCareActivity> {
                                     "Likes":Likes
                                   });
                                 }, 
-                                icon: Icon(Icons.favorite,size: 30,
+                                icon: Icon(Icons.favorite,size: (30/672)*ScreenHeight,
                                       color: snapshot.data!.docs[index]["Likes"].contains(_auth.currentUser!.uid.toString())?
                                               Colors.red:Colors.grey,
                                 )
@@ -130,7 +131,7 @@ class _ownerAajiCareActivityState extends State<ownerAajiCareActivity> {
                                                                 child: Column(
                                                                   crossAxisAlignment: CrossAxisAlignment.start,
                                                                   children: [
-                                                                    Text(snapshot1.data!.docs[index]["UserName"],style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
+                                                                    Text(snapshot1.data!.docs[index]["UserName"],style: TextStyle(fontSize: (18/672)*ScreenHeight,fontWeight: FontWeight.bold),),
                                                                     Text(snapshot1.data!.docs[index]["Comment"])
                                                                   ],
                                                                 ),
@@ -209,7 +210,7 @@ class _ownerAajiCareActivityState extends State<ownerAajiCareActivity> {
                                     }
                                   );
                                 }, 
-                                icon: Icon(Icons.comment_sharp,size: 30,)
+                                icon: Icon(Icons.comment_sharp,size: (30/672)*ScreenHeight,)
                               ),
                               Text("${snapshot.data!.docs[index]["Comments"].length}")
                             ],

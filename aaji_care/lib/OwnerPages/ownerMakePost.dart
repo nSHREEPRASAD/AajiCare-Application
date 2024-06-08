@@ -33,16 +33,16 @@ class _ownerMakePostState extends State<ownerMakePost> {
                   height: (250/672)*ScreenHeight,
                   decoration: BoxDecoration(
                     border: Border.all(
-                      color: Colors.black
-                    )
+                      color: Colors.black,
+                    ),
                   ),
                   child: Stack(
                     children: [
                       Lottie.asset("assets/animations/PostImage.json"),
                       Positioned(
-                        bottom: 10,
-                        right: 20 ,
-                        child: Icon(Icons.add_a_photo,size: 40,)
+                        bottom: (10/672)*ScreenHeight,
+                        right: (20/672)*ScreenHeight,
+                        child: Icon(Icons.add_a_photo,size: (40/672)*ScreenHeight,)
                       )
                     ],
                   )
@@ -65,9 +65,9 @@ class _ownerMakePostState extends State<ownerMakePost> {
                     children: [
                       Lottie.asset("assets/animations/PostVideo.json"),
                       Positioned(
-                        bottom: 10,
-                        right: 20 ,
-                        child: Icon(Icons.videocam,size: 40,)
+                        bottom: (10/672)*ScreenHeight,
+                        right: (20/672)*ScreenHeight,
+                        child: Icon(Icons.videocam,size: (40/672)*ScreenHeight,)
                       )
                     ],
                   )

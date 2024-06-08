@@ -169,86 +169,66 @@ class _ownerInquiryFormsInformationState extends State<ownerInquiryFormsInformat
         width: double.infinity,
         height: double.infinity,
         child: Center(
-          child: Container(
-            height: (550/672)*ScreenHeight,
-            width: (320/360)*ScreenWidth,
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: Colors.black,
-                width: (1/360)*ScreenWidth,
-              )
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(height: (10/672)*ScreenHeight,),
-                    Text("Name : $Name",style: TextStyle(fontSize: 18),),
-                    SizedBox(height: (5/672)*ScreenHeight,),
-                    Row(
+          child: Padding(
+            padding: const EdgeInsets.only(left: 15,right: 15,top: 10),
+            child: Card(
+              elevation: 5,
+              child: Container(
+                height: (550/672)*ScreenHeight,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Email : ",style: TextStyle(fontSize: 18),),
-                        Container(
-                          width: (190/360)*ScreenWidth,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(left: 3),
-                                child: Text("$Email",style: TextStyle(fontSize: 18),),
-                              ),
-                            ],
-                          ),
+                        ListTile(
+                          leading: Text("Name :",style: TextStyle(fontSize: (18/672)*ScreenHeight),),
+                          title: Text("$Name",style: TextStyle(fontSize: (18/672)*ScreenHeight),),
                         ),
-                        IconButton(
-                          onPressed: ()async{
-                            final Uri mail=Uri(
-                              scheme: "mailto",
-                              path: Email.toString()
-                            );
-                            if(await canLaunchUrl(mail)){
-                              await launchUrl(mail);
-                            }
-                          }, 
-                          icon: Icon(Icons.mail,color: Colors.blueGrey,)
+                        ListTile(
+                          leading: Text("Email : ",style: TextStyle(fontSize: (18/672)*ScreenHeight),),
+                          title: Text("$Email",style: TextStyle(fontSize: (18/672)*ScreenHeight),),
+                          trailing: IconButton(
+                              onPressed: ()async{
+                                final Uri mail=Uri(
+                                  scheme: "mailto",
+                                  path: Email.toString()
+                                );
+                                if(await canLaunchUrl(mail)){
+                                  await launchUrl(mail);
+                                }
+                              }, 
+                              icon: Icon(Icons.mail,color: Colors.blueGrey,)),
+                        ),
+                        ListTile(
+                          leading: Text("Contact No :",style: TextStyle(fontSize: (18/672)*ScreenHeight),),
+                          title: Text("$ContactNo",style: TextStyle(fontSize: (18/672)*ScreenHeight),),
+                          trailing: IconButton(
+                              onPressed: ()async{
+                                final Uri phone=Uri(
+                                  scheme: "tel",
+                                  path: ContactNo.toString()
+                                );
+                                if(await canLaunchUrl(phone)){
+                                  await launchUrl(phone);
+                                }
+                              }, 
+                              icon: Icon(Icons.call,color: Colors.green,)
+                            )
+                        ),
+                        ListTile(
+                          leading: Text("Service :",style: TextStyle(fontSize: (18/672)*ScreenHeight),),
+                          title: Text("$Service",style: TextStyle(fontSize: (18/672)*ScreenHeight),),
+                        ),
+                        ListTile(
+                          leading: Text("Message :",style: TextStyle(fontSize: (18/672)*ScreenHeight),),
+                        ),
+                        ListTile(
+                          title: Text("$Message",style: TextStyle(fontSize: (18/672)*ScreenHeight),),
                         )
                       ],
                     ),
-                    Row(
-                      children: [
-                        Text("Contact No : $ContactNo",style: TextStyle(fontSize: 18),),
-                        SizedBox(width: (5/360)*ScreenWidth,),
-                        IconButton(
-                          onPressed: ()async{
-                            final Uri phone=Uri(
-                              scheme: "tel",
-                              path: ContactNo.toString()
-                            );
-                            if(await canLaunchUrl(phone)){
-                              await launchUrl(phone);
-                            }
-                          }, 
-                          icon: Icon(Icons.call,color: Colors.green,)
-                        )
-                      ],
-                    ),
-                    SizedBox(height: (20/672)*ScreenHeight,),
-                    Text("Service : $Service",style: TextStyle(fontSize: 18),),
-                    SizedBox(height: (30/672)*ScreenHeight,),
-                    Text("Message :",style: TextStyle(fontSize: 18),),
-                    SizedBox(height: (10/672)*ScreenHeight,),
-                    Container(
-                      width: (300/360)*ScreenWidth,
-                      child: Column(
-                        children: [
-                          Text("$Message",style: TextStyle(fontSize: 18),),
-                        ],
-                      ),
-                    )
-                  ],
+                  ),
                 ),
               ),
             ),

@@ -1,9 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
-// import 'package:firebase_database/ui/firebase_animated_list.dart';
+import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
-// import 'package:shared_preferences/shared_preferences.dart';
 
 class userResponseCorner extends StatefulWidget {
   const userResponseCorner({super.key});
@@ -12,217 +11,145 @@ class userResponseCorner extends StatefulWidget {
   State<userResponseCorner> createState() => _userResponseCornerState();
 }
 
+
 class _userResponseCornerState extends State<userResponseCorner> {
-  Color buttColor=Colors.grey;
-  final _key = GlobalKey<FormState>();
-  TextEditingController _ResponseController = TextEditingController();
-  // final FirebaseDatabase _rdb= FirebaseDatabase.instance;
-  final _firestoreDb=FirebaseFirestore.instance.collection("Response");
-  List<String>likes=[];
-  Map<String,dynamic>userMap={};
-  Map<String,dynamic>userLikeMap={};
+  final _key1=GlobalKey<FormState>();
+  TextEditingController reviewcontroller=TextEditingController();
+  List Likess = [];
+
+  Map<String,dynamic> userMap={};
+  final _auth=FirebaseAuth.instance;
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
+    FirebaseFirestore.instance.collection("Users")
+    .doc(_auth.currentUser!.uid.toString())
+    .get().then((value){
+      setState(() {
+        userMap=value.data()!;
+      });
+    });
   }
-  
   @override
   Widget build(BuildContext context) {
-    final _auth= FirebaseAuth.instance;
-    var ScreenHeight = MediaQuery.of(context).size.height;
-    var ScreenWidth = MediaQuery.of(context).size.width;
+    final _firestore = FirebaseFirestore.instance.collection("Customer Reviews");
+    var ScreenH = MediaQuery.of(context).size.height;
+    var ScreenW = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
-        title: Text("Response Corner"),
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: Text("Customer's Corner"),
       ),
-      body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(height: (5/672)*ScreenHeight,),
-              Container(
-                width: (340/360)*ScreenWidth,
-                height: (470/672)*ScreenHeight,
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.black,
-                  ),
-                  borderRadius: BorderRadius.circular(15)
-                ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Container(
+                width: double.infinity,
+                height: (ScreenH*450)/672,
                 child: StreamBuilder(
-                  stream: _firestoreDb.snapshots(),
-                  builder: (context,AsyncSnapshot<QuerySnapshot>snapshot){
+                  stream: _firestore.snapshots(), 
+                  builder: (context, snapshot) {
                     if(snapshot.hasData){
                       return ListView.builder(
                         itemCount: snapshot.data!.docs.length,
-                        itemBuilder: (context,index){
-                          return Padding(
-                            padding: const EdgeInsets.only(left: 10, right: 10, top: 1, bottom: 1),
-                            child: Card(
-                              elevation: 5,
-                              child: Container(
-                                width: (300/360)*ScreenWidth,
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                      width: (60/360)*ScreenWidth,
-                                      child: Column(
-                                        children: [
-                                          SizedBox(height: (10/672)*ScreenHeight,),
-                                          Container(
-                                            width: (60/360)*ScreenWidth,
-                                            height: (60/672)*ScreenHeight,
-                                            child: CircleAvatar(child: Icon(Icons.person,size: 50,)),
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                    SizedBox(width: (5/360)*ScreenWidth,),
-                                    Column(
-                                      children: [
-                                        SizedBox(height: (10/672)*ScreenHeight,),
-                                        Container(
-                                          width: (240/360)*ScreenWidth,
-                                          child: Column(
-                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                            children: [
-                                              SizedBox(height: (10/672)*ScreenHeight,),
-                                              Text(snapshot.data!.docs[index]["Email"]),
-                                              SizedBox(height: (10/672)*ScreenHeight,),
-                                              Text(snapshot.data!.docs[index]["Response"]),
-                                            ],
-                                          ),
-                                        ),
-                                        Container(
-                                          width: (220/360)*ScreenWidth,
-                                          height: (50/672)*ScreenHeight,
-                                          child: Row(
-                                            mainAxisAlignment: MainAxisAlignment.end,
-                                            children: [
-                                              Container(
-                                                width: (80/360)*ScreenWidth,
-                                                height: (50/672)*ScreenHeight,
-                                                child: Row(
-                                                  children: [
-                                                    IconButton(
-                                                      onPressed: ()async{ 
-                                                        await FirebaseFirestore.
-                                                        instance.collection("Response").
-                                                        get().then((value){
-                                                          setState(() {
-                                                            userMap=value.docs[index].data();
-                                                          });
-                                                        });
-                                                        List<String>Likes=List.from(userMap["Likes"]??[]);
-                                                        if(Likes.contains(_auth.currentUser!.uid.toString())){
-                                                          Likes.remove(_auth.currentUser!.uid.toString());
-                                                        }
-                                                        else if(!Likes.contains(_auth.currentUser!.uid.toString())){
-                                                          Likes.add(_auth.currentUser!.uid.toString());
-                                                        }
-                                                        await FirebaseFirestore.
-                                                        instance.collection("Response").doc(snapshot.data!.docs[index]["ID"]).
-                                                        update({
-                                                          "Likes":Likes
-                                                        });
-                                                      }, 
-                                                      icon: Icon(Icons.favorite,
-                                                      color:snapshot.data!.docs[index]["Likes"].
-                                                            contains(_auth.currentUser!.uid.toString())?Colors.red:Colors.grey
-                                                      )),
-                                                      Text(snapshot.data!.docs[index]["Likes"].length.toString())
-                                                  ],
-                                                ),
-                                              )
-                                            ],
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  ],
+                        itemBuilder: (context, index) {
+                          return Card(
+                            child: Container(
+                              child: ListTile(
+                                leading: CircleAvatar(
+                                  child: Icon(Icons.person),
                                 ),
-                              ),
+                                title: Text("${snapshot.data!.docs[index]["Username"]}",style: TextStyle(fontSize: (ScreenH*15)/672,color: Colors.blueGrey),),
+                                subtitle: Text("${snapshot.data!.docs[index]["Review"]}",style: TextStyle(fontSize: (ScreenH*15)/672),),
+                                trailing: Container(
+                                  height: (ScreenH*120)/672,
+                                  width: (ScreenW*80)/360,
+                                  // color: Colors.amber,
+                                  child: Row(
+                                    children: [
+                                      IconButton(
+                                        onPressed: () async{
+                                          var Likes = List.from(snapshot.data!.docs[index]["Likes"]??[]);
+                                          if(Likes.contains(_auth.currentUser!.uid.toString())){
+                                            Likes.remove(_auth.currentUser!.uid.toString());
+                                          }
+                                          else{
+                                            Likes.add(_auth.currentUser!.uid.toString());
+                                          }
+                                          await _firestore.doc(snapshot.data!.docs[index].id).update({
+                                            "Likes":Likes
+                                          });
+                                        }, 
+                                        icon: snapshot.data!.docs[index]["Likes"].contains(_auth.currentUser!.uid.toString())?Icon(Icons.favorite,color: Colors.red,):Icon(Icons.favorite,color: Colors.blueGrey,)
+                                      ),
+                                      Text(snapshot.data!.docs[index]["Likes"].length.toString(),style: TextStyle(fontSize: (ScreenH*10)/672),)
+                                    ],
+                                  ),
+                                ),
+                              )
                             ),
                           );
-                        }
+                        },
                       );
                     }
                     else{
-                      return Center(
-                        child: CircularProgressIndicator(),
-                      );
+                      return Center(child: CircularProgressIndicator());
                     }
-                  }
-                ),
-                
+                  },
+                )
               ),
-              SizedBox(height: (5/672)*ScreenHeight,),
-              Container(
-                width: (340/360)*ScreenWidth,
-                child: Form( 
-                  key: _key,
-                  child: TextFormField(
-                    maxLength: 150,
-                    validator: (value) {
-                      if(value!.isNotEmpty){
-                        return null;
-                      }
-                      else{
-                        return "Please Enter Response";
-                      }
-                    },
-                    controller: _ResponseController,
-                    maxLines: 2,
-                    decoration: InputDecoration(
-                      suffixIcon: IconButton(
-                        onPressed:(){
-                          if(!_key.currentState!.validate()){
-                            return;
-                          }
-                          else{
-                            String docName=DateTime.now().millisecondsSinceEpoch.toString();
-                            _firestoreDb.doc(docName).set({
-                              "ID":docName.toString(),
-                              "UID":_auth.currentUser!.uid.toString(),
-                              "Response":_ResponseController.text.toString(),
-                              "Email":_auth.currentUser!.email.toString(),
-                              "Likes":likes
-                            }).then((value){
-                              _ResponseController.clear();
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content: Text("Response Submitted"),
-                                  backgroundColor: Colors.green,
-                                  duration: Duration(seconds: 2),
-                                )
-                              );
-                            });
-                          }
-                        } , 
-                        icon: Icon(Icons.arrow_right_sharp,size: 60,)
-                      ),
-                      hintText: "Enter Response",
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(11),
-                        borderSide: BorderSide(
-                          color: Colors.black,
-                          width: (2/360)*ScreenWidth,
-                        )
-                      )
-                    ),
-                  )
-                ),
-              )
-            ],
-          ),
+            ),
+            SizedBox(height: (ScreenH*5)/672,),
+            Container(
+              width: (ScreenW*320)/360,
+              child: Form(
+                key: _key1,
+                child: TextFormField(
+                  maxLines: 2,
+                  validator: (value) {
+                    if(value!.isNotEmpty){
+                      return null;
+                    }
+                    else{
+                      return "Please Enter Your Review";
+                    }
+                  },
+                  controller: reviewcontroller,
+                  decoration: InputDecoration(
+                    hintText: "Enter Your Review...",
+                    suffix: IconButton(
+                      onPressed: (){
+                        if(!_key1.currentState!.validate()){
+                          return;
+                        }
+                        else{
+                           _firestore.add({
+                            "Review": reviewcontroller.text.toString(),
+                            "Likes": Likess,
+                            "Username": userMap["Name"]
+                          }).then((value){
+                            reviewcontroller.clear();
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text("Review Posted Successfully !"),
+                                duration: Duration(seconds: 2),
+                                backgroundColor: Colors.green,
+                              )
+                            );
+                          });
+                        }
+                      }, 
+                      icon: Icon(Icons.send)
+                    )
+                  ),
+                )
+              ),
+            )
+          ],
         ),
-      ),
+      )
     );
   }
 }

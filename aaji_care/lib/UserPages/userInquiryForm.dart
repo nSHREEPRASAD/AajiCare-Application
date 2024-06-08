@@ -35,13 +35,6 @@ class _userInquiryFormState extends State<userInquiryForm> {
         child: Container(
           width: (340/360)*ScreenWidth,
           height: (560/672)*ScreenHeight,
-          decoration: BoxDecoration(
-            border: Border.all(
-              color: Colors.black,
-              width: (2/360)*ScreenWidth
-            ),
-            borderRadius: BorderRadius.circular(11)
-          ),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: SingleChildScrollView(
@@ -245,7 +238,9 @@ class _userInquiryFormState extends State<userInquiryForm> {
                   ),
                   Container(
                     width: (300/360)*ScreenWidth,
-                    child: ElevatedButton(onPressed:(){
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
+                      onPressed:(){
                       if(!_key1.currentState!.validate() || !_key2.currentState!.validate() || !_key3.currentState!.validate()){
                         return;
                       }
@@ -274,7 +269,7 @@ class _userInquiryFormState extends State<userInquiryForm> {
                         });
                       }
                     }, 
-                    child: Text("Submit Form")),
+                    child: Text("Submit Form",style: TextStyle(color: Colors.white),)),
                   )
                 ],
               ),

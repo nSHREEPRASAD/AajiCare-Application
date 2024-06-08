@@ -1,6 +1,7 @@
 import 'package:aaji_care/UserPages/userAdvisoryBoard.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class userAboutUs extends StatefulWidget {
   const userAboutUs({super.key});
@@ -19,122 +20,162 @@ class _userAboutUsState extends State<userAboutUs> {
         title: Text("About Us"),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
-      body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Container(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              width: (300/360)*ScreenWidth,
+              child: Stack(
+                children: [
+                  Image.network("https://www.startupurban.com/wp-content/uploads/2018/08/aaji-care.jpg"),
+                  Positioned(
+                    bottom: (0/672)*ScreenHeight,
+                    left: (30/672)*ScreenHeight,
+                    right: (30/672)*ScreenHeight,
+                    child: Column(
+                      children: [
+                        Text("An Elder Care Service, you can Trust !",style: TextStyle(fontSize: (20/672)*ScreenHeight,fontWeight: FontWeight.w900,color: Colors.white,fontStyle: FontStyle.italic),),
+                        SizedBox(height: (5/672)*ScreenHeight,),
+                      ],
+                    )
+                  ),
+                ],
+              )
+            ),
+            SizedBox(height: (10/672)*ScreenHeight,),
+            Card(
+              elevation: 5,
+              child: Container(
                 width: (300/360)*ScreenWidth,
-                height: (200/672)*ScreenHeight,
-                child: Stack(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Image.network("https://www.startupurban.com/wp-content/uploads/2018/08/aaji-care.jpg"),
-                    Positioned(
-                      bottom: 50,
-                      left: 50,
+                    Padding(
+                      padding: const EdgeInsets.all(5.0),
                       child: Column(
                         children: [
-                          Text("An Elder Care Service,",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w900,color: Colors.white,fontStyle: FontStyle.italic),),
-                          Text("you can Trust !",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w900,color: Colors.white,fontStyle: FontStyle.italic),),
-                          SizedBox(height: (10/672)*ScreenHeight,),
+                          Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: Container(
+                              color: Colors.blue,
+                              child: Padding(
+                                padding: const EdgeInsets.all(5.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text("Who we are, What we do",style: TextStyle(fontSize: (22/672)*ScreenHeight,color: Colors.white,fontWeight: FontWeight.bold),),
+                                  ],
+                                ),
+                              )
+                            ),
+                          ),
                         ],
-                      )
+                      ),
                     ),
+                    Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: Row(
+                        children: [
+                          Icon(Icons.star,color: Colors.amber[900],size: (30/672)*ScreenHeight,),
+                          SizedBox(width: (2/360)*ScreenWidth,),
+                          Container(
+                            width: (240/360)*ScreenWidth,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text("OUR MISSION",style: TextStyle(fontSize: (30/672)*ScreenHeight,color: Colors.blue,fontWeight: FontWeight.bold),),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 40,right: 40,bottom: 20),
+                      child: Container(
+                        width: (250/360)*ScreenWidth,
+                        child: Text("TO EMPOWER SENIORS & CAREGIVERS TO LEAD HAPPY & DIGNIFIED LIFE",style: TextStyle(fontSize: (15/672)*ScreenHeight,color: Colors.blue,fontWeight: FontWeight.bold),),
+                      ),
+                    )
                   ],
-                )
+                ),
               ),
-              Card(
-                elevation: 5,
-                child: Container(
-                  width: (300/360)*ScreenWidth,
-                  height: (180/672)*ScreenHeight,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(height: (15/672)*ScreenHeight,),
-                      Row(
+            ),
+            SizedBox(height: (5/672)*ScreenHeight,),
+            Card(
+              elevation: 5,
+              child: Container(
+                width: (300/360)*ScreenWidth,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: Column(
                         children: [
-                          SizedBox(width: (5/360)*ScreenWidth,),
-                          Container(
-                            width: (260/360)*ScreenWidth,
-                            height: (28/672)*ScreenHeight,
-                            color: Colors.blue,
-                            child: Text(" Who we are, What we do",style: TextStyle(fontSize: 22,color: Colors.white,fontWeight: FontWeight.bold),)
+                          Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: Container(
+                              color: Colors.blue,
+                              child: Padding(
+                                padding: const EdgeInsets.all(5.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text("Who we aspire to be",style: TextStyle(fontSize: (22/672)*ScreenHeight,color: Colors.white,fontWeight: FontWeight.bold),),
+                                  ],
+                                ),
+                              )
+                            ),
                           ),
                         ],
                       ),
-                      SizedBox(height: (5/672)*ScreenHeight,),
-                      Row(
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: Row(
                         children: [
-                          Icon(Icons.star,color: Colors.amber,size: 30,),
+                          Icon(Icons.remove_red_eye,color: Colors.black,size: (30/672)*ScreenHeight,),
                           SizedBox(width: (2/360)*ScreenWidth,),
-                          Text("OUR MISSION",style: TextStyle(fontSize: 30,color: Colors.blue,fontWeight: FontWeight.bold),),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          SizedBox(width: (30/360)*ScreenWidth,),
                           Container(
-                            width: (250/360)*ScreenWidth,
-                            height: (60/672)*ScreenHeight,
-                            child: Text("TO EMPOWER SENIORS & CAREGIVERS TO LEAD HAPPY & DIGNIFIED LIFE",style: TextStyle(fontSize: 15,color: Colors.blue,fontWeight: FontWeight.bold),),
-                          )
-                        ],
-                      )
-                    ],
-                  ),
-                ),
-              ),
-              SizedBox(height: (5/672)*ScreenHeight,),
-              Card(
-                elevation: 5,
-                child: Container(
-                  width: (300/360)*ScreenWidth,
-                  height: (160/672)*ScreenHeight,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(height: (15/672)*ScreenHeight,),
-                      Row(
-                        children: [
-                          SizedBox(width: (5/360)*ScreenWidth,),
-                          Container(
-                            width: (220/360)*ScreenWidth,
-                            height: (28/672)*ScreenHeight,
-                            color: Colors.blue,
-                            child: Text(" Who we aspire to be",style: TextStyle(fontSize: 22,color: Colors.white,fontWeight: FontWeight.bold),)
+                            width: (240/360)*ScreenWidth,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text("VISION",style: TextStyle(fontSize: (30/672)*ScreenHeight,color: Colors.blue,fontWeight: FontWeight.bold),),
+                              ],
+                            ),
                           ),
                         ],
                       ),
-                      SizedBox(height: (5/672)*ScreenHeight,),
-                      Row(
-                        children: [
-                          Icon(Icons.remove_red_eye,color: Colors.black,size: 30,),
-                          SizedBox(width: (2/360)*ScreenWidth,),
-                          Text("VISION",style: TextStyle(fontSize: 30,color: Colors.blue,fontWeight: FontWeight.bold),),
-                        ],
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 40,right: 40,bottom: 20),
+                      child: Container(
+                        width: (250/360)*ScreenWidth,
+                        child: Text("TO BE A LEADER IN GERIATRIC CARE",style: TextStyle(fontSize: (15/672)*ScreenHeight,color: Colors.blue,fontWeight: FontWeight.bold),),
                       ),
-                      Row(
-                        children: [
-                          SizedBox(width: (30/360)*ScreenWidth,),
-                          Container(
-                            width: (250/360)*ScreenWidth,
-                            height: (60/672)*ScreenHeight,
-                            child: Text("TO BE A LEADER IN GERIATRIC CARE",style: TextStyle(fontSize: 15,color: Colors.blue,fontWeight: FontWeight.bold),),
-                          )
-                        ],
-                      )
-                    ],
-                  ),
+                    )
+                  ],
                 ),
               ),
-              SizedBox(height: (20/672)*ScreenHeight,),
-              Text("Aaji Care 5C Approach",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
-              Text("To Deliver Geriatric Care",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
-              SizedBox(height: (5/672)*ScreenHeight,),
-              CarouselSlider(
+            ),
+            SizedBox(height: (20/672)*ScreenHeight,),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                width: (300/360)*ScreenWidth,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text("Aaji Care 5C Approach To Deliver Geriatric Care",style: TextStyle(fontSize: (25/672)*ScreenHeight,fontWeight: FontWeight.bold),),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(height: (5/672)*ScreenHeight,),
+            Container(
+              child: CarouselSlider(
                 items: [
                   Card(
                     elevation: 5,
@@ -143,16 +184,14 @@ class _userAboutUsState extends State<userAboutUs> {
                       padding: const EdgeInsets.all(8.0),
                       child: Container(
                         width: (210/360)*ScreenWidth,
-                        height: (210/672)*ScreenHeight,
                         child: SingleChildScrollView(
                           child: Column(
                             children: [
+                              Text("#1",style: TextStyle(fontSize: (25/672)*ScreenHeight,color: Colors.white,fontWeight: FontWeight.bold),),
                               SizedBox(height: (5/672)*ScreenHeight,),
-                              Text("#1",style: TextStyle(fontSize: 25,color: Colors.white),),
+                              Text("Compassion",style: TextStyle(fontSize: (25/672)*ScreenHeight,color: Colors.white,fontWeight: FontWeight.bold),),
                               SizedBox(height: (5/672)*ScreenHeight,),
-                              Text("Compassion",style: TextStyle(fontSize: 25,color: Colors.white),),
-                              SizedBox(height: (5/672)*ScreenHeight,),
-                              Text("Compassion is at the heart of Care we deliver across all of our Facilities or at Home.",style: TextStyle(color: Colors.white),)
+                              Text("Compassion is at the heart of Care we deliver across all of our Facilities or at Home.",style: TextStyle(color: Colors.white,fontSize: (15/672)*ScreenHeight,))
                             ],
                           ),
                         ),
@@ -166,16 +205,14 @@ class _userAboutUsState extends State<userAboutUs> {
                       padding: const EdgeInsets.all(8.0),
                       child: Container(
                         width: (210/360)*ScreenWidth,
-                        height: (210/672)*ScreenHeight,
                         child: SingleChildScrollView(
                           child: Column(
                             children: [
+                              Text("#2",style: TextStyle(fontSize: (25/672)*ScreenHeight,color: Colors.blue, fontWeight: FontWeight.bold),),
                               SizedBox(height: (5/672)*ScreenHeight,),
-                              Text("#2",style: TextStyle(fontSize: 25,color: Colors.blue),),
+                              Text("Clarity",style: TextStyle(fontSize: (25/672)*ScreenHeight,color: Colors.blue,fontWeight: FontWeight.bold),),
                               SizedBox(height: (5/672)*ScreenHeight,),
-                              Text("Clarity",style: TextStyle(fontSize: 25,color: Colors.blue),),
-                              SizedBox(height: (5/672)*ScreenHeight,),
-                              Text("Our mission is guiding force to give clarity for everything we do in our organization.",style: TextStyle(color: Colors.blue),)
+                              Text("Our mission is guiding force to give clarity for everything we do in our organization.",style: TextStyle(color: Colors.blue,fontSize: (15/672)*ScreenHeight,))
                             ],
                           ),
                         ),
@@ -189,16 +226,14 @@ class _userAboutUsState extends State<userAboutUs> {
                       padding: const EdgeInsets.all(8.0),
                       child: Container(
                         width: (210/360)*ScreenWidth,
-                        height: (210/672)*ScreenHeight,
                         child: SingleChildScrollView(
                           child: Column(
                             children: [
+                              Text("#3",style: TextStyle(fontSize: (25/672)*ScreenHeight,color: Colors.white,fontWeight: FontWeight.bold),),
                               SizedBox(height: (5/672)*ScreenHeight,),
-                              Text("#3",style: TextStyle(fontSize: 25,color: Colors.white),),
+                              Text("Competence",style: TextStyle(fontSize: (25/672)*ScreenHeight,color: Colors.white,fontWeight: FontWeight.bold),),
                               SizedBox(height: (5/672)*ScreenHeight,),
-                              Text("Competence",style: TextStyle(fontSize: 25,color: Colors.white),),
-                              SizedBox(height: (5/672)*ScreenHeight,),
-                              Text("We focus on building competence in the team to deliver right care and it is a continuous process at Aaji Care.",style: TextStyle(color: Colors.white),)
+                              Text("We focus on building competence in the team to deliver right care and it is a continuous process at Aaji Care.",style: TextStyle(color: Colors.white,fontSize: (15/672)*ScreenHeight,))
                             ],
                           ),
                         ),
@@ -212,16 +247,14 @@ class _userAboutUsState extends State<userAboutUs> {
                       padding: const EdgeInsets.all(8.0),
                       child: Container(
                         width: (210/360)*ScreenWidth,
-                        height: (210/672)*ScreenHeight,
                         child: SingleChildScrollView(
                           child: Column(
                             children: [
+                              Text("#4",style: TextStyle(fontSize: (25/672)*ScreenHeight,color: Colors.blue,fontWeight: FontWeight.bold),),
                               SizedBox(height: (5/672)*ScreenHeight,),
-                              Text("#4",style: TextStyle(fontSize: 25,color: Colors.blue),),
+                              Text("Consistency",style: TextStyle(fontSize: (25/672)*ScreenHeight,color: Colors.blue,fontWeight: FontWeight.bold),),
                               SizedBox(height: (5/672)*ScreenHeight,),
-                              Text("Consistency",style: TextStyle(fontSize: 25,color: Colors.blue),),
-                              SizedBox(height: (5/672)*ScreenHeight,),
-                              Text("We have been delivering consistent and uninterrupted service any break-even during peak of Covid waves.",style: TextStyle(color: Colors.blue),)
+                              Text("We have been delivering consistent and uninterrupted service any break-even during peak of Covid waves.",style: TextStyle(color: Colors.blue,fontSize: (15/672)*ScreenHeight,),),
                             ],
                           ),
                         ),
@@ -235,16 +268,14 @@ class _userAboutUsState extends State<userAboutUs> {
                       padding: const EdgeInsets.all(8.0),
                       child: Container(
                         width: (210/360)*ScreenWidth,
-                        height: (210/672)*ScreenHeight,
                         child: SingleChildScrollView(
                           child: Column(
                             children: [
+                              Text("#5",style: TextStyle(fontSize: (25/672)*ScreenHeight,color: Colors.white,fontWeight: FontWeight.bold),),
                               SizedBox(height: (5/672)*ScreenHeight,),
-                              Text("#5",style: TextStyle(fontSize: 25,color: Colors.white),),
+                              Text("Commitment",style: TextStyle(fontSize: (25/672)*ScreenHeight,color: Colors.white,fontWeight: FontWeight.bold),),
                               SizedBox(height: (5/672)*ScreenHeight,),
-                              Text("Commitment",style: TextStyle(fontSize: 25,color: Colors.white),),
-                              SizedBox(height: (5/672)*ScreenHeight,),
-                              Text("Entire Aaji Care team is committed to treat elders with dignity, love & care",style: TextStyle(color: Colors.white),)
+                              Text("Entire Aaji Care team is committed to treat elders with dignity, love & care",style: TextStyle(color: Colors.white,fontSize: (15/672)*ScreenHeight),)
                             ],
                           ),
                         ),
@@ -259,430 +290,168 @@ class _userAboutUsState extends State<userAboutUs> {
                   enlargeCenterPage: true,
                 )
               ),
-              SizedBox(height: (10/672)*ScreenHeight,),
-              Container(
-                width: (300/360)*ScreenWidth,
-                height: (610/672)*ScreenHeight,
-                child: Column(
-                  children: [
-                    Text(
-                      "Hello Everyone ! This is Elder Care Service home named as “Aaji Care”. Aaji Care Home Health Services Private Limited was invented on 15 Aug 2012.",
-                      style: TextStyle(fontSize: 20),
-                    ),
-                    SizedBox(height: (30/672)*ScreenHeight,),
-                    Text(
-                      "Aaji Care is Mumbai's Most Trusted Elder Care Service provider and delivering care with smiles from 2012. We are on a mission “To empower seniors and caregivers to lead a happy and dignified life”. We are here to deliver long-term, innovative and meaningful solutions to geriatric care challenges faced by individuals and families in metro cities across India.",
-                      style: TextStyle(fontSize: 20),
-                    ),
-                    SizedBox(height: (30/672)*ScreenHeight,),
-                    Text(
-                      "Our Specialities are at Elder Care, Geriatric Care, Dementia Care, Patient Care at Home, Senior Care at Home, Geriatric Care Clinic, Care Givers, and Palliative Care.",
-                      style: TextStyle(fontSize: 20),
-                    )
-                  ],
-                ),
+            ),
+            SizedBox(height: (10/672)*ScreenHeight,),
+            Container(
+              width: (300/360)*ScreenWidth,
+              child: Column(
+                children: [
+                  Text(
+                    "Hello Everyone ! This is Elder Care Service home named as “Aaji Care”. Aaji Care Home Health Services Private Limited was invented on 15 Aug 2012.",
+                    style: TextStyle(fontSize: (20/672)*ScreenHeight),
+                  ),
+                  SizedBox(height: (20/672)*ScreenHeight,),
+                  Text(
+                    "Aaji Care is Mumbai's Most Trusted Elder Care Service provider and delivering care with smiles from 2012. We are on a mission “To empower seniors and caregivers to lead a happy and dignified life”. We are here to deliver long-term, innovative and meaningful solutions to geriatric care challenges faced by individuals and families in metro cities across India.",
+                    style: TextStyle(fontSize: (20/672)*ScreenHeight),
+                  ),
+                  SizedBox(height: (20/672)*ScreenHeight,),
+                  Text(
+                    "Our Specialities are at Elder Care, Geriatric Care, Dementia Care, Patient Care at Home, Senior Care at Home, Geriatric Care Clinic, Care Givers, and Palliative Care.",
+                    style: TextStyle(fontSize: (20/672)*ScreenHeight),
+                  )
+                ],
               ),
-              SizedBox(height: (10/672)*ScreenHeight,),
-              InkWell(
+            ),
+            SizedBox(height: (10/672)*ScreenHeight,),
+            InkWell(
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
                 child: Card(
                   elevation: 10,
                   color: Colors.blue,
                   child: Container(
                     width: (300/360)*ScreenWidth,
-                    height: (70/672)*ScreenHeight,
-                    child: Column(
-                      children: [
-                        SizedBox(height: (5/672)*ScreenHeight,),
-                        Text("Advisory Board",style: TextStyle(fontSize: 20,color: Colors.white,fontWeight: FontWeight.bold),),
-                        Text("Know more about our Advisory Board",style: TextStyle(fontSize: 15,color: Colors.white),)
-                      ],
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          SizedBox(height: (5/672)*ScreenHeight,),
+                          Text("Advisory Board",style: TextStyle(fontSize: (20/672)*ScreenHeight,color: Colors.white,fontWeight: FontWeight.bold),),
+                          Text("Know more about our Advisory Board",style: TextStyle(fontSize: (15/672)*ScreenHeight,color: Colors.white),)
+                        ],
+                      ),
                     ),
                   ),
                 ),
-                onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>userAdvisoryBoard()));
-                },
               ),
-              SizedBox(height: (20/672)*ScreenHeight,),
-              Row(
-                children: [
-                  SizedBox(width: (30/360)*ScreenWidth,),
-                  Text("Our Team :-",style: TextStyle(fontSize: 25),),
-                ],
-              ),
-              Card(
-                child: Container(
-                  width: (300/360)*ScreenWidth,
-                  height: (100/672)*ScreenHeight,
-                  child: Row(
-                    children: [
-                      Container(
-                        width: (100/360)*ScreenWidth,
-                        height: (80/672)*ScreenHeight,
-                        child: CircleAvatar(
-                          backgroundImage: AssetImage("assets/images/PrasadBhide.jpg"),
-                        ),
-                      ),
-                      SizedBox(width: (10/360)*ScreenWidth,),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(height: (10/672)*ScreenHeight,),
-                          Text("Prasad Bhide",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
-                          Text("Founder-CEO",style: TextStyle(fontSize: 15,color: Colors.blueGrey),),
-                        ],
-                      )
-                    ],
-                  ),
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>userAdvisoryBoard()));
+              },
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Container(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("Our Team :",style: TextStyle(fontSize: (25/672)*ScreenHeight,fontWeight: FontWeight.bold),),
+                  ],
                 ),
               ),
-              Card(
-                child: Container(
-                  width: (300/360)*ScreenWidth,
-                  height: (100/672)*ScreenHeight,
-                  child: Row(
-                    children: [
-                      Container(
-                        width: (100/360)*ScreenWidth,
-                        height: (80/672)*ScreenHeight,
-                        child: CircleAvatar(
-                          backgroundImage: AssetImage("assets/images/VikrantThakkar.jpeg"),
-                        ),
-                      ),
-                      SizedBox(width: (10/360)*ScreenWidth,),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(height: (10/672)*ScreenHeight,),
-                          Text("Vikrant Thakkar",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
-                          Container(
-                            width: (180/360)*ScreenWidth,
-                            height: (50/672)*ScreenHeight,
-                            child: Column(
-                              children: [
-                                Text("CAO & Property Acquisition Head",style: TextStyle(fontSize: 15,color: Colors.blueGrey),),
-                              ],
-                            ),
-                          )
-                        ],
-                      )
-                    ],
-                  ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 15,right: 10,top: 5),
+              child: Card(
+                child: ListTile(
+                  leading: CircleAvatar(child: Icon(Icons.person)),
+                  title: Text("Prasad Bhide"),
+                  subtitle: Text("Founder-CEO"),
                 ),
               ),
-              Card(
-                child: Container(
-                  width: (300/360)*ScreenWidth,
-                  height: (100/672)*ScreenHeight,
-                  child: Row(
-                    children: [
-                      Container(
-                        width: (100/360)*ScreenWidth,
-                        height: (80/672)*ScreenHeight,
-                        child: CircleAvatar(
-                          backgroundImage: AssetImage("assets/images/AjayPillai.jpeg"),
-                        ),
-                      ),
-                      SizedBox(width: (10/360)*ScreenWidth,),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(height: (10/672)*ScreenHeight,),
-                          Text("Dr. Ajay Pillai",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
-                          Container(
-                            width: (180/360)*ScreenWidth,
-                            height: (50/672)*ScreenHeight,
-                            child: Column(
-                              children: [
-                                Text("Head - Geriatric Care Centre",style: TextStyle(fontSize: 15,color: Colors.blueGrey),),
-                              ],
-                            ),
-                          )
-                        ],
-                      )
-                    ],
-                  ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 15,right: 10,top: 5),
+              child: Card(
+                child: ListTile(
+                  leading: CircleAvatar(child: Icon(Icons.person)),
+                  title: Text("Vikrant Thakkar"),
+                subtitle: Text("CAO & Property Acquisition Head"),
                 ),
               ),
-              Card(
-                child: Container(
-                  width: (300/360)*ScreenWidth,
-                  height: (100/672)*ScreenHeight,
-                  child: Row(
-                    children: [
-                      Container(
-                        width: (100/360)*ScreenWidth,
-                        height: (80/672)*ScreenHeight,
-                        child: CircleAvatar(
-                          backgroundImage: AssetImage("assets/images/NainaOke.png"),
-                        ),
-                      ),
-                      SizedBox(width: (10/360)*ScreenWidth,),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(height: (10/672)*ScreenHeight,),
-                          Text("Naina Oke",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
-                          Container(
-                            width: (180/360)*ScreenWidth,
-                            height: (50/672)*ScreenHeight,
-                            child: Column(
-                              children: [
-                                Text("Head - Geriatric Counselling",style: TextStyle(fontSize: 15,color: Colors.blueGrey),),
-                              ],
-                            ),
-                          )
-                        ],
-                      )
-                    ],
-                  ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 15,right: 10,top: 5),
+              child: Card(
+                child: ListTile(
+                  leading: CircleAvatar(child: Icon(Icons.person)),
+                  title: Text("Dr. Ajay Pillai"),
+                subtitle: Text("Head - Geriatric Care Centre"),
                 ),
               ),
-              Card(
-                child: Container(
-                  width: (300/360)*ScreenWidth,
-                  height: (100/672)*ScreenHeight,
-                  child: Row(
-                    children: [
-                      Container(
-                        width: (100/360)*ScreenWidth,
-                        height: (80/672)*ScreenHeight,
-                        child: CircleAvatar(
-                          child: Icon(Icons.person,size: 70,),
-                        ),
-                      ),
-                      SizedBox(width: (10/360)*ScreenWidth,),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(height: (10/672)*ScreenHeight,),
-                          Text("Ami Damani",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
-                          Container(
-                            width: (180/360)*ScreenWidth,
-                            height: (50/672)*ScreenHeight,
-                            child: Column(
-                              children: [
-                                Text("Head - IT & Quality Management",style: TextStyle(fontSize: 15,color: Colors.blueGrey),),
-                              ],
-                            ),
-                          )
-                        ],
-                      )
-                    ],
-                  ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 15,right: 10,top: 5),
+              child: Card(
+                child: ListTile(
+                  leading: CircleAvatar(child: Icon(Icons.person)),
+                  title: Text("Ami Damani"),
+                subtitle: Text("Head - IT & Quality Management"),
                 ),
               ),
-              Card(
-                child: Container(
-                  width: (300/360)*ScreenWidth,
-                  height: (100/672)*ScreenHeight,
-                  child: Row(
-                    children: [
-                      Container(
-                        width: (100/360)*ScreenWidth,
-                        height: (80/672)*ScreenHeight,
-                        child: CircleAvatar(
-                          child: Icon(Icons.person,size: 70,),
-                        ),
-                      ),
-                      SizedBox(width: (10/360)*ScreenWidth,),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(height: (10/672)*ScreenHeight,),
-                          Text("Vanita Kuckain",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
-                          Container(
-                            width: (180/360)*ScreenWidth,
-                            height: (50/672)*ScreenHeight,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text("Marketing Manager",style: TextStyle(fontSize: 15,color: Colors.blueGrey),),
-                              ],
-                            ),
-                          )
-                        ],
-                      )
-                    ],
-                  ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 15,right: 10,top: 5),
+              child: Card(
+                child: ListTile(
+                  leading: CircleAvatar(child: Icon(Icons.person)),
+                  title: Text("Vanita Kuckain"),
+                subtitle: Text("Marketing Manager"),
                 ),
               ),
-              Card(
-                child: Container(
-                  width: (300/360)*ScreenWidth,
-                  height: (100/672)*ScreenHeight,
-                  child: Row(
-                    children: [
-                      Container(
-                        width: (100/360)*ScreenWidth,
-                        height: (80/672)*ScreenHeight,
-                        child: CircleAvatar(
-                          backgroundImage: AssetImage("assets/images/PriyankaShinde.png"),
-                        ),
-                      ),
-                      SizedBox(width: (10/360)*ScreenWidth,),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(height: (10/672)*ScreenHeight,),
-                          Text("Priyanka Shinde",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
-                          Container(
-                            width: (180/360)*ScreenWidth,
-                            height: (50/672)*ScreenHeight,
-                            child: Column(
-                              children: [
-                                Text("Head - Programme & Skill Training",style: TextStyle(fontSize: 15,color: Colors.blueGrey),),
-                              ],
-                            ),
-                          )
-                        ],
-                      )
-                    ],
-                  ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 15,right: 10,top: 5),
+              child: Card(
+                child: ListTile(
+                  leading: CircleAvatar(child: Icon(Icons.person)),
+                  title: Text("Priyanka Shinde"),
+                subtitle: Text("Head - Programme & Skill Training"),
                 ),
               ),
-              Card(
-                child: Container(
-                  width: (300/360)*ScreenWidth,
-                  height: (100/672)*ScreenHeight,
-                  child: Row(
-                    children: [
-                      Container(
-                        width: (100/360)*ScreenWidth,
-                        height: (80/672)*ScreenHeight,
-                        child: CircleAvatar(
-                          backgroundImage: AssetImage("assets/images/SulbhaPatke.png"),
-                        ),
-                      ),
-                      SizedBox(width: (10/360)*ScreenWidth,),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(height: (10/672)*ScreenHeight,),
-                          Text("Sulbha Patke",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
-                          Container(
-                            width: (180/360)*ScreenWidth,
-                            height: (50/672)*ScreenHeight,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text("Head - Accounts",style: TextStyle(fontSize: 15,color: Colors.blueGrey),),
-                              ],
-                            ),
-                          )
-                        ],
-                      )
-                    ],
-                  ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 15,right: 10,top: 5),
+              child: Card(
+                child: ListTile(
+                  leading: CircleAvatar(child: Icon(Icons.person)),
+                  title: Text("Sulbha Patke"),
+                subtitle: Text("Head - Accounts"),
                 ),
               ),
-              Card(
-                child: Container(
-                  width: (300/360)*ScreenWidth,
-                  height: (100/672)*ScreenHeight,
-                  child: Row(
-                    children: [
-                      Container(
-                        width: (100/360)*ScreenWidth,
-                        height: (80/672)*ScreenHeight,
-                        child: CircleAvatar(
-                          backgroundImage: AssetImage("assets/images/RuchiraRaichura.png"),
-                        ),
-                      ),
-                      SizedBox(width: (10/360)*ScreenWidth,),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(height: (10/672)*ScreenHeight,),
-                          Text("Dr. Ruchi Raichura",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
-                          Container(
-                            width: (180/360)*ScreenWidth,
-                            height: (50/672)*ScreenHeight,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text("Medical Administrator",style: TextStyle(fontSize: 15,color: Colors.blueGrey),),
-                              ],
-                            ),
-                          )
-                        ],
-                      )
-                    ],
-                  ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 15,right: 10,top: 5),
+              child: Card(
+                child: ListTile(
+                  leading: CircleAvatar(child: Icon(Icons.person)),
+                  title: Text("Dr. Ruchi Raichura"),
+                subtitle: Text("Medical Administrator"),
                 ),
               ),
-              Card(
-                child: Container(
-                  width: (300/360)*ScreenWidth,
-                  height: (100/672)*ScreenHeight,
-                  child: Row(
-                    children: [
-                      Container(
-                        width: (100/360)*ScreenWidth,
-                        height: (80/672)*ScreenHeight,
-                        child: CircleAvatar(
-                          child: Icon(Icons.person,size: 70,),
-                        ),
-                      ),
-                      SizedBox(width: (10/360)*ScreenWidth,),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(height: (10/672)*ScreenHeight,),
-                          Text("Priyanka K",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
-                          Container(
-                            width: (180/360)*ScreenWidth,
-                            height: (50/672)*ScreenHeight,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text("Center Manager",style: TextStyle(fontSize: 15,color: Colors.blueGrey),),
-                              ],
-                            ),
-                          )
-                        ],
-                      )
-                    ],
-                  ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 15,right: 10,top: 5),
+              child: Card(
+                child: ListTile(
+                  leading: CircleAvatar(child: Icon(Icons.person)),
+                  title: Text("Priyanka K"),
+                subtitle: Text("Center Manager"),
                 ),
               ),
-              Card(
-                child: Container(
-                  width: (300/360)*ScreenWidth,
-                  height: (100/672)*ScreenHeight,
-                  child: Row(
-                    children: [
-                      Container(
-                        width: (100/360)*ScreenWidth,
-                        height: (80/672)*ScreenHeight,
-                        child: CircleAvatar(
-                          backgroundImage: AssetImage("assets/images/MilanArun.png"),
-                        ),
-                      ),
-                      SizedBox(width: (10/360)*ScreenWidth,),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(height: (10/672)*ScreenHeight,),
-                          Text("Milan Arun",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
-                          Container(
-                            width: (180/360)*ScreenWidth,
-                            height: (50/672)*ScreenHeight,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text("Center Manager",style: TextStyle(fontSize: 15,color: Colors.blueGrey),),
-                              ],
-                            ),
-                          )
-                        ],
-                      )
-                    ],
-                  ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 15,right: 10,top: 5),
+              child: Card(
+                child: ListTile(
+                  leading: CircleAvatar(child: Icon(Icons.person)),
+                  title: Text("Milan Arun"),
+                subtitle: Text("Center Manager"),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

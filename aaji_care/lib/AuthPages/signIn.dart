@@ -52,8 +52,8 @@ class _SignInState extends State<SignIn> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(" Welcome,",style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),),
-                      Text(" Sign in to continue",style: TextStyle(fontSize: 20),),
+                      Text(" Welcome,",style: TextStyle(fontSize: (30/672)*ScreenHeight,fontWeight: FontWeight.bold),),
+                      Text(" Sign in to continue",style: TextStyle(fontSize: (20/672)*ScreenHeight),),
                       SizedBox(height: (30/672)*ScreenHeight,),
                       Row(
                         children: [
@@ -175,7 +175,7 @@ class _SignInState extends State<SignIn> {
                                 setState(() {
                                   isLoading=false;
                                 });
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=>ChooseRoles()));
+                                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>ChooseRoles()));
                               });
                             }, 
                             child: Text("Sign Up")

@@ -96,8 +96,8 @@ class _userInquiryReplyState extends State<userInquiryReply> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text("Reply",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),),
-                                Text("From: ${userMap["ownerEmail"]}",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),)
+                                Text("Reply",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: (20/672)*ScreenHeight),),
+                                Text("From: ${userMap["ownerEmail"]}",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: (20/672)*ScreenHeight),)
                               ],
                             ),
                           ),
@@ -107,7 +107,7 @@ class _userInquiryReplyState extends State<userInquiryReply> {
                     SizedBox(height: (10/672)*ScreenHeight,),
                     Padding(
                       padding: const EdgeInsets.all(10.0),
-                      child: Text("${userMap["Reply"]}",style: TextStyle(fontSize: 25),),
+                      child: Text("${userMap["Reply"]}",style: TextStyle(fontSize: (25/672)*ScreenHeight),),
                     ),
                     ElevatedButton(
                       onPressed: (){
@@ -125,7 +125,7 @@ class _userInquiryReplyState extends State<userInquiryReply> {
                           children: [
                             Icon(Icons.arrow_back),
                             SizedBox(width: (5/360)*ScreenWidth,),
-                            Text("Go To Dashboard",style: TextStyle(fontSize: 15),),
+                            Text("Go To Dashboard",style: TextStyle(fontSize: (15/672)*ScreenHeight),),
                           ],
                         ),
                       )

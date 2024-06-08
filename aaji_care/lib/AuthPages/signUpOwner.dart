@@ -13,7 +13,9 @@ class SignUpOwner extends StatefulWidget {
 }
 
 class _SignUpOwnerState extends State<SignUpOwner> {
-   bool isLoading=false;
+  bool isLoading=false;
+  bool _obscure=true;
+  bool _obscure_1=true;
   final key1=GlobalKey<FormState>();
   final key2=GlobalKey<FormState>();
   final key3=GlobalKey<FormState>();
@@ -26,6 +28,10 @@ class _SignUpOwnerState extends State<SignUpOwner> {
   Widget build(BuildContext context) {
     final _auth=FirebaseAuth.instance;
     final _firestore=FirebaseFirestore.instance.collection("Users");
+
+    var ScreenHeight = MediaQuery.of(context).size.height;
+    var ScreenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Owner-Sign Up"),
@@ -38,28 +44,33 @@ class _SignUpOwnerState extends State<SignUpOwner> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(height: 10,),
+              SizedBox(height: (10/672)*ScreenHeight,),
               Container(
-                width: 200,
-                height: 200,
+                width: (200/360)*ScreenWidth,
+                height: (180/672)*ScreenHeight,
                 child: Lottie.asset("assets/animations/OldAgeCare.json"),
               ),
-              SizedBox(height: 10,),
               Container(
-                width: double.infinity,
-                height: 370,
+                width: (320/360)*ScreenWidth,
+                height: (400/672)*ScreenHeight,
                 child: SingleChildScrollView(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(" Welcome,",style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),),
-                      Text(" Create an account",style: TextStyle(fontSize: 20),),
-                      SizedBox(height: 30,),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 5),
+                        child: Text("Welcome,",style: TextStyle(fontSize: (30/672)*ScreenHeight,fontWeight: FontWeight.bold),),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 5),
+                        child: Text("Create an account",style: TextStyle(fontSize: (20/672)*ScreenHeight),),
+                      ),
+                      SizedBox(height: (10/672)*ScreenHeight,),
                       Row(
                         children: [
-                          SizedBox(width: 5,),
+                          SizedBox(width: (5/360)*ScreenWidth,),
                           Container(
-                            width: 300,
+                            width: (300/360)*ScreenWidth,
                             child: Form(
                               key: key1,
                               child: TextFormField(
@@ -80,21 +91,21 @@ class _SignUpOwnerState extends State<SignUpOwner> {
                                     borderRadius: BorderRadius.circular(11),
                                     borderSide: BorderSide(
                                       color: Colors.grey,
-                                      width: 2,
+                                      width: (2/360)*ScreenWidth,
                                     )
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(11),
                                     borderSide: BorderSide(
                                       color: Colors.black,
-                                      width: 2,
+                                      width: (2/360)*ScreenWidth,
                                     )
                                   ),
                                   focusedErrorBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(11),
                                     borderSide: BorderSide(
                                       color: Colors.red,
-                                      width: 2,
+                                      width: (2/360)*ScreenWidth,
                                     )
                                   ), 
                                 ),
@@ -103,12 +114,12 @@ class _SignUpOwnerState extends State<SignUpOwner> {
                           ),
                         ],
                       ),
-                      SizedBox(height: 10,),
+                      SizedBox(height: (10/672)*ScreenHeight,),
                       Row(
                         children: [
-                          SizedBox(width: 5,),
+                          SizedBox(width: (5/360)*ScreenWidth,),
                           Container(
-                            width: 300,
+                            width: (300/360)*ScreenWidth,
                             child: Form(
                               key: key2,
                               child: TextFormField(
@@ -129,21 +140,21 @@ class _SignUpOwnerState extends State<SignUpOwner> {
                                     borderRadius: BorderRadius.circular(11),
                                     borderSide: BorderSide(
                                       color: Colors.grey,
-                                      width: 2,
+                                      width: (2/360)*ScreenWidth,
                                     )
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(11),
                                     borderSide: BorderSide(
                                       color: Colors.black,
-                                      width: 2,
+                                      width: (2/360)*ScreenWidth,
                                     )
                                   ),
                                   focusedErrorBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(11),
                                     borderSide: BorderSide(
                                       color: Colors.red,
-                                      width: 2,
+                                      width: (2/360)*ScreenWidth,
                                     )
                                   ), 
                                 ),
@@ -152,15 +163,16 @@ class _SignUpOwnerState extends State<SignUpOwner> {
                           ),
                         ],
                       ),
-                      SizedBox(height: 10,),
+                      SizedBox(height: (10/672)*ScreenHeight,),
                       Row(
                         children: [
-                          SizedBox(width: 5,),
+                          SizedBox(width: (5/360)*ScreenWidth,),
                           Container(
-                            width: 300,
+                            width: (300/360)*ScreenWidth,
                             child: Form(
                               key: key3,
                               child: TextFormField(
+                                obscureText: _obscure_1,
                                 validator: (value) {
                                   if(value!.isNotEmpty){
                                     return null;
@@ -172,26 +184,33 @@ class _SignUpOwnerState extends State<SignUpOwner> {
                                 controller: _PasswordController,
                                 decoration: InputDecoration(
                                   hintText: "Password",
+                                  suffixIcon: IconButton(
+                                  onPressed:(){
+                                    setState(() {
+                                      _obscure_1=!_obscure_1;
+                                    });
+                                  } , 
+                                  icon: _obscure_1==true?Icon(Icons.remove_red_eye):Icon(Icons.cancel)),
                                   prefixIcon: Icon(Icons.lock),
                                   enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(11),
                                     borderSide: BorderSide(
                                       color: Colors.grey,
-                                      width: 2,
+                                      width: (2/360)*ScreenWidth,
                                     )
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(11),
                                     borderSide: BorderSide(
                                       color: Colors.black,
-                                      width: 2,
+                                      width: (2/360)*ScreenWidth,
                                     )
                                   ),
                                   focusedErrorBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(11),
                                     borderSide: BorderSide(
                                       color: Colors.red,
-                                      width: 2,
+                                      width: (2/360)*ScreenWidth,
                                     )
                                   ), 
                                 ),
@@ -200,15 +219,16 @@ class _SignUpOwnerState extends State<SignUpOwner> {
                           ),
                         ],
                       ),
-                      SizedBox(height: 20,),
+                      SizedBox(height: (10/672)*ScreenHeight,),
                       Row(
                         children: [
-                          SizedBox(width: 5,),
+                          SizedBox(width: (5/360)*ScreenWidth,),
                           Container(
-                            width: 300,
+                            width: (300/360)*ScreenWidth,
                             child: Form(
                               key: key4,
                               child: TextFormField(
+                                obscureText: _obscure,
                                 validator: (value) {
                                   if(value!.isNotEmpty){
                                     if(value!="OWNER@123"){
@@ -225,26 +245,33 @@ class _SignUpOwnerState extends State<SignUpOwner> {
                                 controller: _OwnerCodeController,
                                 decoration: InputDecoration(
                                   hintText: "Owner Code",
+                                  suffixIcon: IconButton(
+                                  onPressed:(){
+                                    setState(() {
+                                      _obscure=!_obscure;
+                                    });
+                                  } , 
+                                  icon: _obscure==true?Icon(Icons.remove_red_eye):Icon(Icons.cancel)),
                                   prefixIcon: Icon(Icons.key),
                                   enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(11),
                                     borderSide: BorderSide(
                                       color: Colors.grey,
-                                      width: 2,
+                                      width: (2/360)*ScreenWidth,
                                     )
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(11),
                                     borderSide: BorderSide(
                                       color: Colors.black,
-                                      width: 2,
+                                      width: (2/360)*ScreenWidth,
                                     )
                                   ),
                                   focusedErrorBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(11),
                                     borderSide: BorderSide(
                                       color: Colors.red,
-                                      width: 2,
+                                      width: (2/360)*ScreenWidth,
                                     )
                                   ), 
                                 ),
@@ -253,12 +280,12 @@ class _SignUpOwnerState extends State<SignUpOwner> {
                           ),
                         ],
                       ),
-                      SizedBox(height: 20,),
+                      SizedBox(height: (5/672)*ScreenHeight,),
                       Row(
                         children: [
-                          SizedBox(width: 5,),
+                          SizedBox(width: (5/360)*ScreenWidth,),
                           Text("Already have an account ? Sign In."),
-                          SizedBox(width: 5,),
+                          SizedBox(width: (2/360)*ScreenWidth,),
                           TextButton(
                             onPressed: (){
                               setState(() {
@@ -275,9 +302,8 @@ class _SignUpOwnerState extends State<SignUpOwner> {
                           )
                         ],
                       ),
-                      SizedBox(height: 10,),
                       Container(
-                        width: 300,
+                        width: (300/360)*ScreenWidth,
                         child: ElevatedButton(
                           onPressed: (){
                             if(!key1.currentState!.validate() || !key2.currentState!.validate() || !key3.currentState!.validate() ||!key4.currentState!.validate()){
