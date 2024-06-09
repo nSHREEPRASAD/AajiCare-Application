@@ -76,7 +76,7 @@ class _ownerAajiCareActivityState extends State<ownerAajiCareActivity> {
                           ),
                           Row(
                             children: [
-                              SizedBox(width: (50/360)*ScreenWidth,),
+                              SizedBox(width: (20/360)*ScreenWidth,),
                               IconButton(
                                 onPressed: ()async{
                                   List<String>Likes = List.from(snapshot.data!.docs[index]["Likes"]);
@@ -97,8 +97,16 @@ class _ownerAajiCareActivityState extends State<ownerAajiCareActivity> {
                                               Colors.red:Colors.grey,
                                 )
                               ),
-                              Text("${snapshot.data!.docs[index]["Likes"].length}"),
-                              SizedBox(width: (100/360)*ScreenWidth,),
+                              Container(
+                                width: (150/672)*ScreenWidth,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text("${snapshot.data!.docs[index]["Likes"].length}"),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(width: (40/360)*ScreenWidth,),
                               IconButton(
                                 onPressed: (){
                                   showModalBottomSheet(
@@ -212,7 +220,15 @@ class _ownerAajiCareActivityState extends State<ownerAajiCareActivity> {
                                 }, 
                                 icon: Icon(Icons.comment_sharp,size: (30/672)*ScreenHeight,)
                               ),
-                              Text("${snapshot.data!.docs[index]["Comments"].length}")
+                              Container(
+                                width: (150/672)*ScreenWidth,
+                                child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text("${snapshot.data!.docs[index]["Comments"].length}")
+                                    ],
+                                  ),
+                              ),
                             ],
                           )
                         ],

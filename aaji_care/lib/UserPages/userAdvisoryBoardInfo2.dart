@@ -52,11 +52,11 @@ class userAdvisoryBoardInfo2 extends StatelessWidget {
                       Text("Mr. Panchal is an Independent Director of IL&FS AMF. He was Senior Practice Head-Life Sciences & Healthcare at Tata Strategic Management Group. Mr. Panchal has over 27 years of professional experience and has worked with leading transnational healthcare companies like Abbott, J&J and B.Braun.",
                       style:TextStyle(fontSize: (18/672)*ScreenHeight),
                       ),
-                      SizedBox(height: (10/672)*ScreenHeight,),
+                      SizedBox(height: (20/672)*ScreenHeight,),
                       Text("Mr. Panchal has full business cycle work experience, which includes Sales & Marketing, Business Development, planning and executing corporate strategy, business and operational process improvement, and managing Indepedent P&L.",
                       style:TextStyle(fontSize: (18/672)*ScreenHeight),
                       ),
-                      SizedBox(height: (10/672)*ScreenHeight,),
+                      SizedBox(height: (20/672)*ScreenHeight,),
                       Text("Mr. Panchal is a recognized thought leader and has received several awards for his contribution to Industry & Academia. Mr. Panchal holds a Masters in Management from the Asian Institute of Management (AIM), Manila, Philippines.",
                       style:TextStyle(fontSize: (18/672)*ScreenHeight),
                       )

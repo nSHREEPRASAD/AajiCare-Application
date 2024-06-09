@@ -159,47 +159,49 @@ class _ownerNewImagePostState extends State<ownerNewImagePost> {
                           )
                         );
                       }
-                      String filName=DateTime.now().millisecondsSinceEpoch.toString();
-                      Reference refDir = FirebaseStorage.instance.ref();
-                      Reference refRoot = refDir.child("Images");
-                      Reference refImg = refRoot.child(filName);
-                      setState(() {
-                        isPressed=true;
-                      });
-                      Future.delayed(Duration(seconds: 11 ),(){
+                      else{
+                        String filName=DateTime.now().millisecondsSinceEpoch.toString();
+                        Reference refDir = FirebaseStorage.instance.ref();
+                        Reference refRoot = refDir.child("Images");
+                        Reference refImg = refRoot.child(filName);
                         setState(() {
-                          isPressed=false;
+                          isPressed=true;
                         });
-                      });
-                      try{
-                        await refImg.putFile(File(filePath));
-                        imgUrl=await refImg.getDownloadURL();
-                        String docId=DateTime.now().millisecondsSinceEpoch.toString();
-                        _firestore.collection("Post").doc(docId).
-                        set({
-                          "FileType":"Image",
-                          "ImgUrl":imgUrl.toString(),
-                          "Caption":_CaptionController.text.toString(),
-                          "Likes":Likes,
-                          "Comments":Comments,
-                          "Id": docId.toString()
-                        }).then((value){
-                          _CaptionController.clear();
+                        Future.delayed(Duration(seconds: 11 ),(){
                           setState(() {
-                            Photo=null;
-                            filePath="";
+                            isPressed=false;
                           });
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text("Image Posted Successfully"),
-                              backgroundColor: Colors.green,
-                              duration: Duration(seconds: 2),
-                            )
-                          );
                         });
-                      }
-                      catch(e){
-                        //error
+                        try{
+                          await refImg.putFile(File(filePath));
+                          imgUrl=await refImg.getDownloadURL();
+                          String docId=DateTime.now().millisecondsSinceEpoch.toString();
+                          _firestore.collection("Post").doc(docId).
+                          set({
+                            "FileType":"Image",
+                            "ImgUrl":imgUrl.toString(),
+                            "Caption":_CaptionController.text.toString(),
+                            "Likes":Likes,
+                            "Comments":Comments,
+                            "Id": docId.toString()
+                          }).then((value){
+                            _CaptionController.clear();
+                            setState(() {
+                              Photo=null;
+                              filePath="";
+                            });
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text("Image Posted Successfully"),
+                                backgroundColor: Colors.green,
+                                duration: Duration(seconds: 2),
+                              )
+                            );
+                          });
+                        }
+                        catch(e){
+                          //error
+                        }
                       }
                     }, 
                     child: 

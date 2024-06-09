@@ -39,13 +39,6 @@ class _ownerAddVacancyState extends State<ownerAddVacancy> {
         child: Container(
           width: (330/360)*ScreenWidth,
           height: (550/672)*ScreenHeight,
-          decoration: BoxDecoration(
-            border: Border.all(
-              color: Colors.black,
-              width: (1/360)*ScreenWidth
-            ),
-            borderRadius: BorderRadius.circular(15)
-          ),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -359,12 +352,13 @@ class _ownerAddVacancyState extends State<ownerAddVacancy> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(20.0),
+                  padding: const EdgeInsets.only(top:20),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                        width: (100/360)*ScreenWidth,
+                        color: Colors.amber,
+                        width: (300/360)*ScreenWidth,
                         child: ElevatedButton(
                           onPressed: (){
                             if (!key_1.currentState!.validate() || !key_2.currentState!.validate() || !key_3.currentState!.validate() || !key_5.currentState!.validate()) {

@@ -57,7 +57,7 @@ class userServices3 extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 8,bottom: 8,left: 15,right: 15),
-                child: Text("vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvWhat Does Elder Buddy Do?",style: TextStyle(fontSize: (25/672)*ScreenHeight,fontWeight: FontWeight.bold),),
+                child: Text("What Does Elder Buddy Do?",style: TextStyle(fontSize: (25/672)*ScreenHeight,fontWeight: FontWeight.bold),),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 8,bottom: 8,left: 15,right: 15),

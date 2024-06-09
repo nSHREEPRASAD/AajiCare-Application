@@ -25,7 +25,7 @@ class _ownerVacancyState extends State<ownerVacancy> {
         onPressed: (){
           Navigator.push(context, MaterialPageRoute(builder: (context)=>ownerAddVacancy()));
         },
-        child:Icon(Icons.add,size: 30,),
+        child:Icon(Icons.add,size: (30/672)*ScreenHeight,),
       ), 
       body: StreamBuilder(
         stream: _firestore.collection("Vacancy").snapshots(), 
@@ -45,7 +45,7 @@ class _ownerVacancyState extends State<ownerVacancy> {
                           children: [
                             Padding(
                               padding: const EdgeInsets.only(left: 10,top: 15,bottom: 15),
-                              child: Text("Job Title :",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
+                              child: Text("Job Title :",style: TextStyle(fontWeight: FontWeight.bold,fontSize: (20/672)*ScreenHeight),),
                             ),
                             Container(
                               width: (160/360)*ScreenWidth,
@@ -55,7 +55,7 @@ class _ownerVacancyState extends State<ownerVacancy> {
                                 children: [
                                   Padding(
                                     padding: const EdgeInsets.only(left: 5),
-                                    child: Text("${snapshot.data!.docs[index]["Title"]}",style: TextStyle(fontSize: 18),),
+                                    child: Text("${snapshot.data!.docs[index]["Title"]}",style: TextStyle(fontSize: (18/672)*ScreenHeight),),
                                   )
                                 ],
                               ),

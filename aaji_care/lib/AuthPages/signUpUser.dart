@@ -219,7 +219,15 @@ class _SignUpUserState extends State<SignUpUser> {
                     Row(
                       children: [
                         SizedBox(width: (5/360)*ScreenWidth,),
-                        Text("Already have an account ?"),
+                        Container(
+                          width: (200/672)*ScreenHeight,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text("Already have an account ?"),
+                            ],
+                          ),
+                        ),
                         SizedBox(width: (2/360)*ScreenWidth,),
                         TextButton(
                           onPressed: (){
@@ -233,7 +241,11 @@ class _SignUpUserState extends State<SignUpUser> {
                               Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>SignIn()));
                             });
                           }, 
-                          child: Text("Sign In")
+                          child: Column(
+                            children: [
+                              Text("Sign In"),
+                            ],
+                          )
                         )
                       ],
                     ),

@@ -53,11 +53,11 @@ class userAdvisoryBoardInfo1 extends StatelessWidget {
                       Text("Dr. Priyadarshini Kulkarni is a Fellow of the National Cancer Centre in Singapore. An anesthetist by training, Dr. Kulkarni has been successful palliative care specialist for the past 19 years. She has completed a Graduate Certificate in Health (Palliative Medicine) from Flinders University, Adelaide, Australia. She also completed MSc in Palliative Medicine from Cardiff University, UK.",
                       style:TextStyle(fontSize: (18/672)*ScreenHeight),
                       ),
-                      SizedBox(height: (10/672)*ScreenHeight,),
+                      SizedBox(height: (20/672)*ScreenHeight,),
                       Text("The previous prestigious positions held by her are Medical Director of Cipla Palliative Care and Training Centre, Pune; National Secretary of the Indian Assosiation of Palliative Care.",
                       style:TextStyle(fontSize: (18/672)*ScreenHeight),
                       ),
-                      SizedBox(height: (10/672)*ScreenHeight,),
+                      SizedBox(height: (20/672)*ScreenHeight,),
                       Text("She has served as a board member of the Worldwide Hospice Palliative Care Alliance (WHPCA), and Asia Pacific Hospice Palliative Care Network (APHN).",
                       style:TextStyle(fontSize: (18/672)*ScreenHeight),
                       )

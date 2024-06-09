@@ -264,13 +264,13 @@ class _UserHomeState extends State<UserHome> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("Story Behind The Brand :",style: TextStyle(fontSize: (30/672)*ScreenHeight,fontWeight: FontWeight.bold),),
+                    Text("Story Behind The Brand:",style: TextStyle(fontSize: (30/672)*ScreenHeight,fontWeight: FontWeight.bold),),
                     SizedBox(height: (10/672)*ScreenHeight,),
                     Text(
                       "Our Founder & CEO, Prasad Bhide, faced dilemmas, guilt, distress, and hassles while managing post-operative care for his mother and grandmother while staying in the USA. So he left his high-paying IT job to start a social enterprise called Aaji Care in 2012. ",
                       style: TextStyle(fontSize: (20/672)*ScreenHeight),
                     ),
-                    SizedBox(height: (30/672)*ScreenHeight,),
+                    SizedBox(height: (20/672)*ScreenHeight,),
                     Text(
                       "His thought was to make sure other families do not have to face similar challenges like him and his family and improve the quality of care delivered to elders at home. Aaji Care provides two-fold impact; one is to empower elders through various services which will enhance the quality of life for elders and their families second is to create distinguished careers for caregivers dominated by women.",
                       style: TextStyle(fontSize: (20/672)*ScreenHeight),
