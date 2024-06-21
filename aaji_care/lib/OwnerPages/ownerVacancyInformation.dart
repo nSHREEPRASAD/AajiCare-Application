@@ -75,8 +75,8 @@ class _ownerVacancyInformationState extends State<ownerVacancyInformation> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Job Title :",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black),),
-                        Text("${Title}",style: TextStyle(fontSize: 18,color: Colors.blueGrey),)
+                        Text("Job Title :",style: TextStyle(fontSize: (20/672)*ScreenHeight,fontWeight: FontWeight.bold,color: Colors.black),),
+                        Text("${Title}",style: TextStyle(fontSize: (18/672)*ScreenHeight,color: Colors.blueGrey),)
                       ],
                     ),
                   ),
@@ -85,8 +85,8 @@ class _ownerVacancyInformationState extends State<ownerVacancyInformation> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Job Description :",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black),),
-                        Text("${Description}",style: TextStyle(fontSize: 18,color: Colors.blueGrey),)
+                        Text("Job Description :",style: TextStyle(fontSize: (20/672)*ScreenHeight,fontWeight: FontWeight.bold,color: Colors.black),),
+                        Text("${Description}",style: TextStyle(fontSize: (18/672)*ScreenHeight,color: Colors.blueGrey),)
                       ],
                     ),
                   ),
@@ -95,8 +95,8 @@ class _ownerVacancyInformationState extends State<ownerVacancyInformation> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Job Location :",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black),),
-                        Text("${Location}",style: TextStyle(fontSize: 18,color: Colors.blueGrey),)
+                        Text("Job Location :",style: TextStyle(fontSize: (20/672)*ScreenHeight,fontWeight: FontWeight.bold,color: Colors.black),),
+                        Text("${Location}",style: TextStyle(fontSize: (18/672)*ScreenHeight,color: Colors.blueGrey),)
                       ],
                     ),
                   ),
@@ -105,8 +105,8 @@ class _ownerVacancyInformationState extends State<ownerVacancyInformation> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Job Timings :",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black),),
-                        Text("${Timings}",style: TextStyle(fontSize: 18,color: Colors.blueGrey),)
+                        Text("Job Timings :",style: TextStyle(fontSize: (20/672)*ScreenHeight,fontWeight: FontWeight.bold,color: Colors.black),),
+                        Text("${Timings}",style: TextStyle(fontSize: (18/672)*ScreenHeight,color: Colors.blueGrey),)
                       ],
                     ),
                   ),
@@ -115,8 +115,8 @@ class _ownerVacancyInformationState extends State<ownerVacancyInformation> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Job Salary :",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black),),
-                        Text("Rs ${Salary}",style: TextStyle(fontSize: 18,color: Colors.blueGrey),)
+                        Text("Job Salary :",style: TextStyle(fontSize: (20/672)*ScreenHeight,fontWeight: FontWeight.bold,color: Colors.black),),
+                        Text("Rs ${Salary}",style: TextStyle(fontSize: (18/672)*ScreenHeight,color: Colors.blueGrey),)
                       ],
                     ),
                   ),

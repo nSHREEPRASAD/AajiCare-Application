@@ -44,7 +44,7 @@ class _ownerAddVacancyState extends State<ownerAddVacancy> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 20,left: 15,right: 15),
+                  padding: const EdgeInsets.only(top: 10,left: 15,right: 15),
                   child: Form(
                     key: key_1,
                     child: TextFormField(
@@ -174,7 +174,6 @@ class _ownerAddVacancyState extends State<ownerAddVacancy> {
                   padding: const EdgeInsets.only(top: 20,left: 15,right: 15),
                   child: Container(
                     width: (300/360)*ScreenWidth,
-                    height: (250/672)*ScreenHeight,
                     child: Column(
                       children: [
                         Padding(
@@ -183,7 +182,15 @@ class _ownerAddVacancyState extends State<ownerAddVacancy> {
                             children: [
                               Icon(Icons.hourglass_bottom),
                               SizedBox(width: (10/360)*ScreenWidth,),
-                              Text("Job Timings",style: TextStyle(fontSize: 18),)
+                              Container(
+                                width: (240/360)*ScreenWidth,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text("Job Timings",style: TextStyle(fontSize: (18/672)*ScreenHeight),),
+                                  ],
+                                ),
+                              )
                             ],
                           ),
                         ),
@@ -196,8 +203,8 @@ class _ownerAddVacancyState extends State<ownerAddVacancy> {
                                 zeroPad: true, 
                                 itemHeight: (30/672)*ScreenHeight,
                                 infiniteLoop: true,
-                                selectedTextStyle: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 25),
-                                textStyle: TextStyle(color: Colors.grey,fontSize: 15),
+                                selectedTextStyle: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: (25/672)*ScreenHeight),
+                                textStyle: TextStyle(color: Colors.grey,fontSize: (15/672)*ScreenHeight),
                                 decoration: BoxDecoration(
                                   border: Border(
                                     top: BorderSide(
@@ -217,7 +224,14 @@ class _ownerAddVacancyState extends State<ownerAddVacancy> {
                               ),
                             ),
                             SizedBox(width: (10/360)*ScreenWidth,),
-                            Text("To"),
+                            Container(
+                              width: (40/672)*ScreenHeight,
+                              child: Column(
+                                children: [
+                                  Text("To"),
+                                ],
+                              ),
+                            ),
                             SizedBox(width: (10/360)*ScreenWidth,),
                             SingleChildScrollView(
                               child: NumberPicker(
@@ -226,8 +240,8 @@ class _ownerAddVacancyState extends State<ownerAddVacancy> {
                                 zeroPad: true, 
                                 itemHeight: (30/672)*ScreenHeight,
                                 infiniteLoop: true,
-                                selectedTextStyle: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 25),
-                                textStyle: TextStyle(color: Colors.grey,fontSize: 15),
+                                selectedTextStyle: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: (25/672)*ScreenHeight),
+                                textStyle: TextStyle(color: Colors.grey,fontSize: (15/672)*ScreenHeight),
                                 decoration: BoxDecoration(
                                   border: Border(
                                     top: BorderSide(
@@ -252,6 +266,7 @@ class _ownerAddVacancyState extends State<ownerAddVacancy> {
                           padding: const EdgeInsets.only(left: 10,top: 10),
                           child: Row(
                             children: [
+                              SizedBox(width: (15/360)*ScreenWidth,),
                               Column(
                                 children: [
                                   ChoiceChip(
@@ -276,7 +291,7 @@ class _ownerAddVacancyState extends State<ownerAddVacancy> {
                                   ),
                                 ],
                               ),
-                              SizedBox(width: (60/360)*ScreenWidth,),
+                              SizedBox(width: (105/360)*ScreenWidth,),
                               Column(
                                 children: [
                                   ChoiceChip(
@@ -357,9 +372,9 @@ class _ownerAddVacancyState extends State<ownerAddVacancy> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                        color: Colors.amber,
                         width: (300/360)*ScreenWidth,
                         child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
                           onPressed: (){
                             if (!key_1.currentState!.validate() || !key_2.currentState!.validate() || !key_3.currentState!.validate() || !key_5.currentState!.validate()) {
                               return;
@@ -397,9 +412,11 @@ class _ownerAddVacancyState extends State<ownerAddVacancy> {
                             }
                           }, 
                           child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Icon(Icons.add),
-                              Text("Add"),
+                              Icon(Icons.add,color: Colors.white,),
+                              SizedBox(width: (5/672)*ScreenWidth,),
+                              Text("Add",style: TextStyle(color: Colors.white),),
                             ],
                           )
                         ),

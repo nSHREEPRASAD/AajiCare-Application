@@ -45,46 +45,50 @@ class _ownerVacancyState extends State<ownerVacancy> {
                           children: [
                             Padding(
                               padding: const EdgeInsets.only(left: 10,top: 15,bottom: 15),
-                              child: Text("Job Title :",style: TextStyle(fontWeight: FontWeight.bold,fontSize: (20/672)*ScreenHeight),),
-                            ),
-                            Container(
-                              width: (160/360)*ScreenWidth,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 5),
-                                    child: Text("${snapshot.data!.docs[index]["Title"]}",style: TextStyle(fontSize: (18/672)*ScreenHeight),),
-                                  )
-                                ],
+                              child: Container(
+                                width: (110/360)*ScreenWidth,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text("Job Title :",style: TextStyle(fontWeight: FontWeight.bold,fontSize: (20/672)*ScreenHeight),),
+                                  ],
+                                ),
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.all(5.0),
-                              child: IconButton(
-                                onPressed: (){
-                                  _firestore.collection("Vacancy").doc(snapshot.data!.docs[index].id).delete();
-                                  try{
-                                      _firestore.collection("Vacancy").doc(snapshot.data!.docs[index].id).collection("Resumes").get().then((snap)=>{
-                                      for (DocumentSnapshot ds in snap.docs){
-                                        ds.reference.delete()
-                                      }
-                                    });
-                                  }
-                                  catch(e){
-                                    //error
-                                  }
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                      content: Text("Vacancy Deleted"),
-                                      backgroundColor: Colors.red,
-                                      duration: Duration(seconds: 3),
-                                    )
-                                  );
-                                }, 
-                                icon: Icon(Icons.delete,color: Colors.red,)
+                              padding: const EdgeInsets.only(left: 5),
+                              child: Container(
+                                width: (140/360)*ScreenWidth,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text("${snapshot.data!.docs[index]["Title"]}",style: TextStyle(fontSize: (18/672)*ScreenHeight),),
+                                  ],
+                                ),
                               ),
+                            ),
+                            IconButton(
+                              onPressed: (){
+                                _firestore.collection("Vacancy").doc(snapshot.data!.docs[index].id).delete();
+                                try{
+                                    _firestore.collection("Vacancy").doc(snapshot.data!.docs[index].id).collection("Resumes").get().then((snap)=>{
+                                    for (DocumentSnapshot ds in snap.docs){
+                                      ds.reference.delete()
+                                    }
+                                  });
+                                }
+                                catch(e){
+                                  //error
+                                }
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text("Vacancy Deleted"),
+                                    backgroundColor: Colors.red,
+                                    duration: Duration(seconds: 3),
+                                  )
+                                );
+                              }, 
+                              icon: Icon(Icons.delete,color: Colors.red,)
                             )
                           ],
                         ),
