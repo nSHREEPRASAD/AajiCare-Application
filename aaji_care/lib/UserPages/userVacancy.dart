@@ -38,19 +38,28 @@ class _userVacancyState extends State<userVacancy> {
                           children: [
                             Padding(
                               padding: const EdgeInsets.only(left: 10,top: 15,bottom: 15),
-                              child: Text("Job Title :",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
+                              child: Container(
+                                width: (100/360)*ScreenWidth,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text("Job Title",style: TextStyle(fontWeight: FontWeight.bold,fontSize: (20/672)*ScreenHeight),),
+                                  ],
+                                ),
+                              ),
                             ),
-                            Container(
-                              width: (160/360)*ScreenWidth,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 5),
-                                    child: Text("${snapshot.data!.docs[index]["Title"]}",style: TextStyle(fontSize: 18),),
-                                  )
-                                ],
+                            Text(":",style: TextStyle(fontWeight: FontWeight.bold,fontSize: (20/672)*ScreenHeight),),
+                            SizedBox(width: (10/360)*ScreenWidth,),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 5),
+                              child: Container(
+                                width: (140/360)*ScreenWidth,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text("${snapshot.data!.docs[index]["Title"]}",style: TextStyle(fontSize: (18/672)*ScreenHeight),),
+                                  ],
+                                ),
                               ),
                             ),
                           ],
@@ -69,7 +78,7 @@ class _userVacancyState extends State<userVacancy> {
             return Center(child: CircularProgressIndicator(),);
           }
         }
-      ), 
+      ),
     );
   }
 }

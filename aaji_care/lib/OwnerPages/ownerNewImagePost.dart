@@ -42,7 +42,7 @@ class _ownerNewImagePostState extends State<ownerNewImagePost> {
                     child: Container(
                       width: (300/360)*ScreenWidth,
                       height: (300/672)*ScreenHeight,
-                      child: Photo==null? Icon(Icons.image,size: (200/672)*ScreenHeight,color: Colors.blueGrey,):Image.file(Photo!,width: (300/360)*ScreenWidth,height: (300/672)*ScreenHeight,fit: BoxFit.cover,)
+                      child: Photo==null? Icon(Icons.add_a_photo,size: (200/672)*ScreenHeight,color: Colors.blueGrey,):Image.file(Photo!,width: (300/360)*ScreenWidth,height: (300/672)*ScreenHeight,fit: BoxFit.cover,)
                     ),
                   ),
                   Positioned(

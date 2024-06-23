@@ -100,75 +100,71 @@ class _userVacancyInformationState extends State<userVacancyInformation> {
         ],
       ),
       body: Center(
-        child: Container(
-          width: (340/360)*ScreenWidth,
-          height: (560/672)*ScreenHeight,
-          decoration: BoxDecoration(
-            border: Border.all(
-              color: Colors.black,
-              width: (1/360)*ScreenWidth
+        child: Card(
+          elevation: 10,
+          child: Container(
+            width: (340/360)*ScreenWidth,
+            height: (560/672)*ScreenHeight,
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 17,right: 17,top: 10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("Job Title :",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black),),
+                          Text("${Title}",style: TextStyle(fontSize: 18,color: Colors.blueGrey),)
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 17,right: 17,top: 10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("Job Description :",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black),),
+                          Text("${Description}",style: TextStyle(fontSize: 18,color: Colors.blueGrey),)
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 17,right: 17,top: 10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("Job Location :",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black),),
+                          Text("${Location}",style: TextStyle(fontSize: 18,color: Colors.blueGrey),)
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 17,right: 17,top: 10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("Job Timings :",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black),),
+                          Text("${Timings}",style: TextStyle(fontSize: 18,color: Colors.blueGrey),)
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 17,right: 17,top: 10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("Job Salary :",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black),),
+                          Text("Rs ${Salary}",style: TextStyle(fontSize: 18,color: Colors.blueGrey),)
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              )
             ),
-            borderRadius: BorderRadius.circular(15)
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 17,right: 17,top: 10),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text("Job Title :",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black),),
-                        Text("${Title}",style: TextStyle(fontSize: 18,color: Colors.blueGrey),)
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 17,right: 17,top: 10),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text("Job Description :",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black),),
-                        Text("${Description}",style: TextStyle(fontSize: 18,color: Colors.blueGrey),)
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 17,right: 17,top: 10),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text("Job Location :",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black),),
-                        Text("${Location}",style: TextStyle(fontSize: 18,color: Colors.blueGrey),)
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 17,right: 17,top: 10),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text("Job Timings :",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black),),
-                        Text("${Timings}",style: TextStyle(fontSize: 18,color: Colors.blueGrey),)
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 17,right: 17,top: 10),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text("Job Salary :",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black),),
-                        Text("Rs ${Salary}",style: TextStyle(fontSize: 18,color: Colors.blueGrey),)
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            )
           ),
         ),
       ),

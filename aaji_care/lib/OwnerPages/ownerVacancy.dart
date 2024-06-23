@@ -46,15 +46,17 @@ class _ownerVacancyState extends State<ownerVacancy> {
                             Padding(
                               padding: const EdgeInsets.only(left: 10,top: 15,bottom: 15),
                               child: Container(
-                                width: (110/360)*ScreenWidth,
+                                width: (100/360)*ScreenWidth,
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text("Job Title :",style: TextStyle(fontWeight: FontWeight.bold,fontSize: (20/672)*ScreenHeight),),
+                                    Text("Job Title",style: TextStyle(fontWeight: FontWeight.bold,fontSize: (20/672)*ScreenHeight),),
                                   ],
                                 ),
                               ),
                             ),
+                            Text(":",style: TextStyle(fontWeight: FontWeight.bold,fontSize: (20/672)*ScreenHeight),),
+                            SizedBox(width: (10/360)*ScreenWidth,),
                             Padding(
                               padding: const EdgeInsets.only(left: 5),
                               child: Container(
@@ -84,7 +86,7 @@ class _ownerVacancyState extends State<ownerVacancy> {
                                   SnackBar(
                                     content: Text("Vacancy Deleted"),
                                     backgroundColor: Colors.red,
-                                    duration: Duration(seconds: 3),
+                                    duration: Duration(seconds: 2),
                                   )
                                 );
                               }, 

@@ -36,7 +36,7 @@ class OwnerInquiryForm extends StatelessWidget {
                             child: Container(
                               child: ListTile(
                                 leading: CircleAvatar(child: Icon(Icons.person),),
-                                title: Text(snapshot.data!.docs[index]["Name"].toString()),
+                                title: Text(snapshot.data!.docs[index]["Name"].toString(),style: TextStyle(fontWeight: FontWeight.bold),),
                                 subtitle: Text(snapshot.data!.docs[index]["Service"].toString()),
                                 trailing: Icon(Icons.question_mark),
                               ),

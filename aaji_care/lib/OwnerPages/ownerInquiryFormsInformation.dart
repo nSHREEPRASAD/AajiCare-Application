@@ -120,6 +120,7 @@ class _ownerInquiryFormsInformationState extends State<ownerInquiryFormsInformat
                                                   duration: Duration(seconds: 2),
                                                 )
                                               );
+                                              Navigator.of(context).popUntil((route) => route.isFirst);
                                               Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>OwnerHome(_auth.currentUser!.email, "Owner")));
                                             });
                                           }
@@ -165,73 +166,123 @@ class _ownerInquiryFormsInformationState extends State<ownerInquiryFormsInformat
           )
         ],
       ),
-      body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        child: Center(
+      body: Center(
+        child: Container(
+          width: (340/360)*ScreenWidth,
+          height: (560/672)*ScreenHeight,
           child: Padding(
-            padding: const EdgeInsets.only(left: 15,right: 15,top: 10),
-            child: Card(
-              elevation: 5,
-              child: Container(
-                height: (550/672)*ScreenHeight,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: SingleChildScrollView(
+            padding: const EdgeInsets.all(10.0),
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 17,right: 17,top: 10),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        ListTile(
-                          leading: Text("Name :",style: TextStyle(fontSize: (18/672)*ScreenHeight),),
-                          title: Text("$Name",style: TextStyle(fontSize: (18/672)*ScreenHeight),),
-                        ),
-                        ListTile(
-                          leading: Text("Email : ",style: TextStyle(fontSize: (18/672)*ScreenHeight),),
-                          title: Text("$Email",style: TextStyle(fontSize: (18/672)*ScreenHeight),),
-                          trailing: IconButton(
+                        Text("Name :",style: TextStyle(fontSize: (20/672)*ScreenHeight,fontWeight: FontWeight.bold,color: Colors.black),),
+                        Text("${Name}",style: TextStyle(fontSize: (18/672)*ScreenHeight,color: Colors.blueGrey),)
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 17,right: 17,top: 10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("Email :",style: TextStyle(fontSize: (20/672)*ScreenHeight,fontWeight: FontWeight.bold,color: Colors.black),),
+                        Row(
+                          children: [
+                            Container(
+                              width: (200/360)*ScreenWidth,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text("${Email}",style: TextStyle(fontSize: (18/672)*ScreenHeight,color: Colors.blueGrey),),
+                                ],
+                              ),
+                            ),
+                            IconButton(
                               onPressed: ()async{
-                                final Uri mail=Uri(
+                                final Uri url = Uri(
                                   scheme: "mailto",
                                   path: Email.toString()
                                 );
-                                if(await canLaunchUrl(mail)){
-                                  await launchUrl(mail);
+                                if(await canLaunchUrl(url)){
+                                  await launchUrl(url);
+                                }
+                                else{
+                                  print("Can't Launch");
                                 }
                               }, 
-                              icon: Icon(Icons.mail,color: Colors.blueGrey,)),
-                        ),
-                        ListTile(
-                          leading: Text("Contact No :",style: TextStyle(fontSize: (18/672)*ScreenHeight),),
-                          title: Text("$ContactNo",style: TextStyle(fontSize: (18/672)*ScreenHeight),),
-                          trailing: IconButton(
-                              onPressed: ()async{
-                                final Uri phone=Uri(
-                                  scheme: "tel",
-                                  path: ContactNo.toString()
-                                );
-                                if(await canLaunchUrl(phone)){
-                                  await launchUrl(phone);
-                                }
-                              }, 
-                              icon: Icon(Icons.call,color: Colors.green,)
-                            )
-                        ),
-                        ListTile(
-                          leading: Text("Service :",style: TextStyle(fontSize: (18/672)*ScreenHeight),),
-                          title: Text("$Service",style: TextStyle(fontSize: (18/672)*ScreenHeight),),
-                        ),
-                        ListTile(
-                          leading: Text("Message :",style: TextStyle(fontSize: (18/672)*ScreenHeight),),
-                        ),
-                        ListTile(
-                          title: Text("$Message",style: TextStyle(fontSize: (18/672)*ScreenHeight),),
+                              icon: Icon(Icons.mail,color: Colors.amber[900],)
+                            ),
+                          ],
                         )
                       ],
                     ),
                   ),
-                ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 17,right: 17,top: 10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("Contact No :",style: TextStyle(fontSize: (20/672)*ScreenHeight,fontWeight: FontWeight.bold,color: Colors.black),),
+                        Row(
+                          children: [
+                            Container(
+                              width: (200/360)*ScreenWidth,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text("${ContactNo}",style: TextStyle(fontSize: (18/672)*ScreenHeight,color: Colors.blueGrey),)
+                                ],
+                              ),
+                            ),
+                            IconButton(
+                              onPressed: ()async{
+                                final Uri url = Uri(
+                                  scheme: "tel",
+                                  path: ContactNo.toString()
+                                );
+                                if(await canLaunchUrl(url)){
+                                  await launchUrl(url);
+                                }
+                                else{
+                                  print("Can't Launch");
+                                }
+                              }, 
+                              icon: Icon(Icons.phone,color: Colors.green,)
+                            )
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 17,right: 17,top: 10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("Service :",style: TextStyle(fontSize: (20/672)*ScreenHeight,fontWeight: FontWeight.bold,color: Colors.black),),
+                        Text("${Service}",style: TextStyle(fontSize: (18/672)*ScreenHeight,color: Colors.blueGrey),),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 17,right: 17,top: 10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("Message :",style: TextStyle(fontSize: (20/672)*ScreenHeight,fontWeight: FontWeight.bold,color: Colors.black),),
+                        Text("${Message}",style: TextStyle(fontSize: (18/672)*ScreenHeight,color: Colors.blueGrey),),
+                      ],
+                    ),
+                  ),
+                ],
               ),
-            ),
+            )
           ),
         ),
       ),

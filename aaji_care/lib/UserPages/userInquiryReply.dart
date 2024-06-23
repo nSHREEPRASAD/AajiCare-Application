@@ -75,12 +75,6 @@ class _userInquiryReplyState extends State<userInquiryReply> {
             Container(
               width: (320/360)*ScreenWidth,
               height: (550/672)*ScreenHeight,
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.black,
-                  width: (2/360)*ScreenWidth
-                ),
-              ),
               child: SingleChildScrollView(
                 child: Column(
                   children: [
@@ -96,8 +90,8 @@ class _userInquiryReplyState extends State<userInquiryReply> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text("Reply",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: (20/672)*ScreenHeight),),
-                                Text("From: ${userMap["ownerEmail"]}",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: (20/672)*ScreenHeight),)
+                                Text("Reply",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: (18/672)*ScreenHeight),),
+                                Text("From: ${userMap["ownerEmail"]}",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: (18/672)*ScreenHeight),)
                               ],
                             ),
                           ),
@@ -107,7 +101,7 @@ class _userInquiryReplyState extends State<userInquiryReply> {
                     SizedBox(height: (10/672)*ScreenHeight,),
                     Padding(
                       padding: const EdgeInsets.all(10.0),
-                      child: Text("${userMap["Reply"]}",style: TextStyle(fontSize: (25/672)*ScreenHeight),),
+                      child: Text("${userMap["Reply"]}",style: TextStyle(fontSize: (20/672)*ScreenHeight),),
                     ),
                     ElevatedButton(
                       onPressed: (){
@@ -129,7 +123,8 @@ class _userInquiryReplyState extends State<userInquiryReply> {
                           ],
                         ),
                       )
-                    )
+                    ),
+                    SizedBox(height: (10/672)*ScreenHeight,),
                   ],
                 ),
               ),

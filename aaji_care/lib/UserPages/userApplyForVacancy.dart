@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:aaji_care/UserPages/userPdfViewer.dart';
+import 'package:aaji_care/UserPages/userVacancy.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -112,6 +113,7 @@ class _userApplyForVacancyState extends State<userApplyForVacancy> {
                     child: Form(
                       key: key_2,
                       child: TextFormField(
+                        maxLength: 10,
                         validator: (value) {
                           if(value!.isNotEmpty){
                             return null;
@@ -220,7 +222,7 @@ class _userApplyForVacancyState extends State<userApplyForVacancy> {
                           setState(() {
                             isPressed=true;
                           });
-                          Future.delayed(Duration(seconds: 15 ),(){
+                          Future.delayed(Duration(seconds: 10 ),(){
                             setState(() {
                               isPressed=false;
                             });
@@ -350,6 +352,8 @@ class _userApplyForVacancyState extends State<userApplyForVacancy> {
                               duration: Duration(seconds: 3),
                             )
                           );
+                          int count = 0;
+                          Navigator.of(context).popUntil((_) => count++ >= 2);
                           });
                         }
                       }, 
