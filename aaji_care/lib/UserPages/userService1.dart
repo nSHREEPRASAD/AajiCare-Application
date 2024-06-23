@@ -77,7 +77,7 @@ class userServices1 extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 8,bottom: 8,left: 15,right: 15),
-                child: Text("Aur bhai Kya bolta sab thik lavde ka baalAur bhai Kya bolta sab thik lavde ka baalAur bhai Kya bolta sab thik lavde ka baalWhat We Offer",style: TextStyle(fontSize: (25/672)*ScreenHeight,fontWeight: FontWeight.bold),),
+                child: Text("What We Offer",style: TextStyle(fontSize: (25/672)*ScreenHeight,fontWeight: FontWeight.bold),),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 8,left: 15,right: 15),
@@ -112,7 +112,7 @@ class userServices1 extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 8,bottom: 8,left: 15,right: 15),
-                child: Text("Aur bhai Kya bolta sab thik lavde ka baalAur bhai Kya bolta sab thik lavde ka baalAur bhai Kya bolta sab thik lavde ka baalKey Highlights",style: TextStyle(fontSize: (25/672)*ScreenHeight,fontWeight: FontWeight.bold),),
+                child: Text("Key Highlights",style: TextStyle(fontSize: (25/672)*ScreenHeight,fontWeight: FontWeight.bold),),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 8,bottom: 8,left: 15,right: 15),
